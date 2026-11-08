@@ -7,8 +7,8 @@
       <h2 class="header-title">BUILT TO WORK.</h2>
     </div>
 
-    <!-- The Folder Stack -->
-    <div class="project-stack">
+    <!-- The Folder Stack Container -->
+    <div class="project-stack" :style="stackStyle">
       
       <!-- Loop through the projects -->
       <div 
@@ -20,15 +20,14 @@
           { 'is-active': activeProject === index }
         ]"
         @click="activeProject = index"
+        :style="getCardStyle(index)"
       >
-        <!-- The Folder Tab (Offset using inline styles based on index) -->
-        <div 
-          class="folder-tab" 
-          :style="{ left: `${index * 8}rem` }"
-        >
+        <!-- The Folder Tab -->
+        <div class="folder-tab">
           <span>// PROJECT 0{{ index + 1 }}</span>
         </div>
-        
+
+        <!-- The Content -->
         <div class="folder-content">
           <div class="project-info">
             <div class="project-meta-top">
@@ -36,29 +35,20 @@
               <span>{{ project.tools }}</span>
             </div>
             <h3 class="project-name">{{ project.name }}</h3>
+            <p class="project-desc">{{ project.desc }}</p>
             
-            <!-- This wrapper expands and collapses -->
-            <div class="expandable-content">
-              <div class="inner-padding">
-                <p class="project-desc">
-                  {{ project.desc }}
-                </p>
-                
-                <div class="project-details">
-                  <div class="detail-row">
-                    <strong>ROLE:</strong> <span>{{ project.role }}</span>
-                  </div>
-                  <div class="detail-row">
-                    <strong>STACK:</strong> <span>{{ project.stack }}</span>
-                  </div>
-                </div>
-
-                <a href="#" class="project-link" @click.stop>VIEW PROJECT ↗</a>
+            <div class="project-details">
+              <div class="detail-row">
+                <strong>ROLE:</strong> <span>{{ project.role }}</span>
+              </div>
+              <div class="detail-row">
+                <strong>STACK:</strong> <span>{{ project.stack }}</span>
               </div>
             </div>
+
+            <a href="#" class="project-link" @click.stop>VIEW PROJECT ↗</a>
           </div>
           
-          <!-- The Image -->
           <div class="project-image">
             <div class="img-placeholder">{{ project.name }} UI</div>
           </div>
@@ -70,7 +60,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const projects = ref([
   {
@@ -102,8 +92,39 @@ const projects = ref([
   }
 ])
 
-// Start with the third project (index 2) at the front
 const activeProject = ref(2) 
+
+const stackStyle = computed(() => {
+  if (activeProject.value === 0) return { height: '1600px' };
+  if (activeProject.value === 1) return { height: '1400px' };
+  return { height: '1000px' };
+})
+
+const getCardStyle = (index) => {
+  // 1. THE ACTIVE CARD
+  if (index === activeProject.value) {
+    return {
+      transform: 'translateY(0px)',
+      zIndex: 10
+    }
+  }
+
+  // 2. CARDS BELOW THE ACTIVE CARD (Pulled UP to hide underneath)
+  if (index < activeProject.value) {
+    return {
+      transform: `translateY(-${(activeProject.value - index) * 80}px)`,
+      zIndex: index
+    }
+  }
+
+  // 3. CARDS ABOVE THE ACTIVE CARD (Pushed DOWN to create the gap)
+  if (index > activeProject.value) {
+    return {
+      transform: `translateY(${600 + ((index - activeProject.value - 1) * 80)}px)`,
+      zIndex: index
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -111,13 +132,13 @@ const activeProject = ref(2)
 .projects-section {
   background-color: var(--cream); 
   color: var(--brown);
-  padding: 6rem 4rem 12rem 4rem; /* Increased bottom padding for the taller stack */
+  padding: 6rem 4rem 4rem 4rem; 
   border-bottom: 2px solid var(--brown);
 }
 
 /* Section Header */
 .section-header {
-  margin-bottom: 4rem;
+  margin-bottom: 4rem; 
 }
 
 .header-label {
@@ -135,64 +156,52 @@ const activeProject = ref(2)
   margin: 0;
 }
 
-/* The Folder Stack */
+/* THE STACKING CONTAINER */
 .project-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
   position: relative;
-  padding-top: 3rem; 
+  transition: height 0.4s ease; 
+  /* Back to 3rem so the container sits normally */
+  margin-top: 3rem; 
 }
 
-/* Individual Folder Card */
+/* THE CARDS */
 .folder-card {
+  position: absolute;
+  
+  /* THIS IS THE ONLY CHANGE: Pushes the cards down by 8rem */
+  top: 8rem; 
+  
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  
   background-color: var(--brown);
   color: var(--cyan);
   border: 2px solid var(--brown);
   border-radius: 1rem; 
   width: 100%;
-  max-width: 1200px; /* Made wider */
+  max-width: 1200px; 
+  min-height: 520px; 
   
-  /* 1. MORE OVERLAP */
-  margin-top: -250px; 
-  
-  /* Made taller */
-  min-height: 550px; 
-  
-  /* Smooth sliding animation */
-  transition: margin-top 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
-              transform 0.3s ease,
-              box-shadow 0.3s ease;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.3s ease,
+              margin-top 0.3s ease;
               
   box-shadow: 0 -10px 20px rgba(0,0,0,0.15);
   cursor: pointer;
-  position: relative;
 }
 
-/* The very first card doesn't need a negative margin */
-.folder-card:first-child {
-  margin-top: 0;
-}
-
-/* 3. HOVER STATE (No z-index change, just a slight lift) */
-.folder-card:not(.is-active):hover {
-  transform: translateY(-15px); 
-  box-shadow: 0 -20px 40px rgba(0,0,0,0.25);
-}
-
-/* ACTIVE STATE */
+/* ACTIVE CARD */
 .folder-card.is-active {
-  margin-top: 0; 
-  margin-bottom: 40px; 
-  z-index: 10 !important;
   cursor: default;
   box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
 }
 
-/* Base stacking order */
-.folder-card:nth-child(1) { z-index: 1; order: 1; }
-.folder-card:nth-child(2) { z-index: 2; order: 2; }
-.folder-card:nth-child(3) { z-index: 3; order: 3; }
+/* HOVER EFFECT */
+.folder-card:not(.is-active):hover {
+  margin-top: -15px; 
+  box-shadow: 0 -20px 40px rgba(0,0,0,0.25);
+}
 
 /* The Color Variants */
 .card-brown { background-color: var(--brown); color: var(--cyan); }
@@ -203,7 +212,7 @@ const activeProject = ref(2)
 .folder-tab {
   position: absolute;
   top: -2.5rem; 
-  /* Left is handled by inline styles now */
+  left: -2px; 
   background-color: inherit; 
   padding: 0.5rem 2rem;
   border: 2px solid inherit;
@@ -213,7 +222,17 @@ const activeProject = ref(2)
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  transition: left 0.4s ease; /* Animates the tab when becoming active */
+}
+
+/* The Hover Fix */
+.folder-tab::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 10px; 
+  background-color: transparent;
 }
 
 /* Folder Content Area */
@@ -243,32 +262,14 @@ const activeProject = ref(2)
 
 .project-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 5rem; /* Made name bigger */
+  font-size: 5rem; 
   line-height: 1;
-  margin-bottom: 0;
-}
-
-/* THE SLIDE-OUT ANIMATION */
-.expandable-content {
-  display: grid;
-  grid-template-rows: 0fr; 
-  transition: grid-template-rows 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-  opacity: 0;
-}
-
-.folder-card.is-active .expandable-content {
-  grid-template-rows: 1fr; 
-  opacity: 1;
-}
-
-.inner-padding {
-  overflow: hidden;
-  padding-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .project-desc {
   font-family: 'Inter', sans-serif;
-  font-size: 1.1rem; /* Slightly bigger text */
+  font-size: 1.1rem; 
   line-height: 1.6;
   margin-bottom: 2rem;
 }
@@ -309,7 +310,6 @@ const activeProject = ref(2)
 /* Project Image (Right) */
 .project-image {
   width: 100%;
-  /* Made image area taller */
   aspect-ratio: 4 / 3; 
   background-color: rgba(0,0,0,0.1);
   border-radius: 0.5rem;
@@ -324,5 +324,24 @@ const activeProject = ref(2)
   font-family: 'JetBrains Mono', monospace;
   font-size: 1rem;
   opacity: 0.5;
+}
+
+/* Mobile Fallback */
+@media (max-width: 900px) {
+  .project-stack {
+    height: auto !important; 
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 0;
+  }
+  
+  .folder-card {
+    position: relative;
+    transform: none !important;
+    margin-bottom: 2rem;
+    margin-top: 0 !important;
+    top: 0 !important; /* Reset top on mobile */
+  }
 }
 </style>
