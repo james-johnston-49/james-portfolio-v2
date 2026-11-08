@@ -61,17 +61,17 @@
 <style scoped>
 /* Main container */
 .hero-section {
-  background-color: #50DCE8;
-  color: #382319;
+  background-color: var(--cyan); /* Updated */
+  color: var(--brown); /* Updated */
   padding: 2rem 4rem 4rem 4rem;
   display: flex;
   flex-direction: column;
-  border-bottom: 2px solid #382319;
+  border-bottom: 2px solid var(--brown); /* Updated */
 }
 
 /* TOP HEADER */
 .hero-header {
-  border-bottom: 1px solid rgba(56, 35, 25, 0.2);
+  border-bottom: 1px solid rgba(56, 35, 25, 0.2); /* Keeping this specific for the faint line */
   padding-bottom: 1rem;
   margin-bottom: 2rem;
 }
@@ -87,7 +87,6 @@
 /* MAIN CONTENT GRID */
 .hero-content {
   display: grid;
-  /* Changed to 0.8fr (text) and 1.2fr (image) so image gets more space */
   grid-template-columns: 1fr 1.2fr; 
   gap: 3rem;
   align-items: start; 
@@ -106,6 +105,7 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   margin-top: 3rem;
+  margin-bottom: 1.7rem;
 }
 
 .text-block {
@@ -115,7 +115,6 @@
 
 .hero-headline {
   font-family: 'Bebas Neue', sans-serif;
-  /* Adjusted size so it fits nicely in the narrower column */
   font-size: 6.5rem; 
   line-height: 0.9; 
   margin-bottom: 1.5rem;
@@ -149,8 +148,8 @@
 /* Button Styles */
 .btn-primary {
   display: inline-block;
-  background-color: #382319;
-  color: #50DCE8;
+  background-color: var(--brown); /* Updated */
+  color: var(--cyan); /* Updated */
   padding: 1rem 2rem;
   font-family: 'JetBrains Mono', monospace;
   font-weight: 700;
@@ -160,7 +159,7 @@
   text-decoration: none;
   border-radius: 50px;
   transition: transform 0.2s ease;
-  white-space: nowrap; /* Prevents button text from wrapping */
+  white-space: nowrap; 
 }
 
 .btn-primary:hover {
@@ -169,8 +168,8 @@
 
 .btn-secondary {
   display: inline-block;
-  background-color: transparent;
-  color: #382319;
+  background-color: var(--cream); /* Updated */
+  color: var(--brown); /* Updated */
   padding: 1rem 2rem;
   font-family: 'JetBrains Mono', monospace;
   font-weight: 700;
@@ -178,14 +177,15 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   text-decoration: none;
-  border: 2px solid #382319;
+  border: 2px solid var(--brown); /* Updated */
   border-radius: 50px;
-  transition: background-color 0.2s ease;
-  white-space: nowrap;
+  transition: all 0.2s ease;
 }
 
+/* Fun hover effect: Invert the colors */
 .btn-secondary:hover {
-  background-color: rgba(56, 35, 25, 0.1);
+  background-color: var(--brown);
+  color: var(--cream);
 }
 
 /* RIGHT SIDE IMAGE AREA */
@@ -199,9 +199,8 @@
 .placeholder-box {
   width: 100%;
   aspect-ratio: 4 / 3; 
-  background-color: #382319;
-  /* height: 500px; */
-  color: #50DCE8;
+  background-color: var(--brown); /* Updated */
+  color: var(--cyan); /* Updated */
   display: flex;
   align-items: center;
   justify-content: center;

@@ -30,12 +30,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* Changed padding to match the Hero section (4rem sides) */
   padding: 1.5rem 4rem; 
-  /* Added color and border to match Figma */
-  background-color: #50DCE8; 
-  color: #382319;
-  border-bottom: 1px solid rgba(56, 35, 25, 0.2);
+  background-color: var(--cream); /* Navbar is now cream */
+  color: var(--brown);
+  border-bottom: 1px solid var(--brown); /* Sharp brown line to separate it from the cyan hero */
 }
 
 .nav-center {
@@ -44,11 +42,20 @@
 }
 
 .nav-left, .nav-center, .nav-right {
-  /* Added the monospace font for the dev vibe */
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 700;
+}
+
+/* Optional: Add a subtle hover effect to the links */
+.nav-center span {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.nav-center span:hover {
+  opacity: 0.5;
 }
 </style>

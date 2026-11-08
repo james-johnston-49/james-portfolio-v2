@@ -1,19 +1,29 @@
+/* 1. Global Color Variables */
+:root {
+  --cyan: #50DCE8;
+  --brown: #382319;
+  --cream: #F4EDE2; /* Updated cream */
+}
+
+/* 2. CSS Reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* 3. Base Styles */
 body {
   width: 100%;
   min-height: 100vh;
-  background-color: #50DCE8; /* Matches the hero so the edges don't flash white */
+  background-color: var(--cyan); /* Now uses the variable */
   font-family: 'Inter', sans-serif;
+  color: var(--brown); /* Good practice to set default text color */
   overflow-x: hidden;
 }
 
 #app {
-  width: 100vw; /* Forces it to be the exact width of the viewport */
+  width: 100vw;
   min-height: 100vh;
   margin: 0;
   padding: 0;
