@@ -31,9 +31,16 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 4rem; 
-  background-color: var(--cream); /* Navbar is now cream */
+  background-color: var(--cream); 
   color: var(--brown);
-  border-bottom: 1px solid var(--brown); /* Sharp brown line to separate it from the cyan hero */
+  border-bottom: 1px solid var(--brown); 
+  
+  /* Change to fixed */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999; 
 }
 
 .nav-center {

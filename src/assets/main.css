@@ -16,10 +16,10 @@
 body {
   width: 100%;
   min-height: 100vh;
-  background-color: var(--cyan); /* Now uses the variable */
+  background-color: var(--cyan); 
   font-family: 'Inter', sans-serif;
-  color: var(--brown); /* Good practice to set default text color */
-  overflow-x: hidden;
+  color: var(--brown); 
+  /* overflow-x: hidden; <-- REMOVE THIS LINE */
 }
 
 #app {
