@@ -63,6 +63,9 @@
             <!-- MANUAL ARROWS -->
             <button class="nav-arrow left" @click="prevImage">←</button>
             <button class="nav-arrow right" @click="nextImage">→</button>
+
+            <!-- NEW: OVERLAY BUTTON -->
+            <a href="/art" class="btn-gallery-overlay">VIEW GALLERY ↗</a>
           </div>
 
           <!-- BOTTOM BAR -->
@@ -95,31 +98,27 @@ import { ref } from 'vue'
 
 import mossCat from '../assets/art/moss-cat-creature.png'
 import poisonIvy from '../assets/art/absolute-poison-ivy.png'
-// import reptile from '../assets/art/reptilian-creature.png' // Commented out for now
-// import kyren from '../assets/art/kyre-character-sheet.png' // Commented out for now
+// import reptile from '../assets/art/reptilian-creature.png'
+// import kyren from '../assets/art/kyre-character-sheet.png'
 
 const images = ref([
   { src: mossCat, alt: 'Moss Cat Creature' }, 
   { src: poisonIvy, alt: 'Poison Ivy' },
-  // { src: reptile, alt: 'Reptilian Creature' },
-  // { src: kyren, alt: 'Kyren Character Sheet' }
 ])
 
 const activeIndex = ref(0)
 
-// Manual Navigation Functions
 const nextImage = () => {
   activeIndex.value = (activeIndex.value + 1) % images.value.length
 }
 
 const prevImage = () => {
-  // If we are at index 0, go to the last image. Otherwise, go back by 1.
   activeIndex.value = (activeIndex.value - 1 + images.value.length) % images.value.length
 }
 </script>
 
 <style scoped>
-/* --- ALL YOUR EXISTING STYLES REMAIN THE SAME --- */
+/* --- HERO BASE STYLES --- */
 .hero-section {
   background-color: var(--cyan); 
   color: var(--brown); 
@@ -284,12 +283,10 @@ const prevImage = () => {
   width: 100%;
   height: 100%;
   opacity: 0; 
-  transition: opacity 0.5s ease-in-out; /* Made fade slightly faster for manual clicking */
+  transition: opacity 0.5s ease-in-out; 
 }
 
-.carousel-slide.active {
-  opacity: 1;
-}
+.carousel-slide.active { opacity: 1; }
 
 .carousel-slide img {
   width: 100%;
@@ -297,7 +294,6 @@ const prevImage = () => {
   object-fit: cover; 
 }
 
-/* NEW: Arrow Styles */
 .nav-arrow {
   position: absolute;
   top: 50%;
@@ -312,13 +308,35 @@ const prevImage = () => {
   transition: background 0.2s ease;
 }
 
-.nav-arrow:hover {
-  background: var(--brown);
-}
-
+.nav-arrow:hover { background: var(--brown); }
 .nav-arrow.left { left: 1rem; }
 .nav-arrow.right { right: 1rem; }
 
+/* --- THE OVERLAY BUTTON --- */
+.btn-gallery-overlay {
+  position: absolute;
+  bottom: 1rem; /* Distance from the bottom of the image */
+  right: 1rem; /* Distance from the right of the image */
+  background-color: var(--cream);
+  color: var(--brown);
+  padding: 0.8rem 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border: 2px solid var(--brown);
+  z-index: 10; /* Ensures it stays on top of the images and arrows */
+  transition: all 0.2s ease;
+}
+
+.btn-gallery-overlay:hover {
+  background-color: var(--brown);
+  color: var(--cream);
+}
+
+/* --- BOTTOM BAR --- */
 .terminal-bottom {
   display: flex;
   justify-content: space-between;
@@ -359,7 +377,5 @@ const prevImage = () => {
   transition: background-color 0.3s ease;
 }
 
-.dot.active {
-  background-color: var(--cyan);
-}
+.dot.active { background-color: var(--cyan); }
 </style>

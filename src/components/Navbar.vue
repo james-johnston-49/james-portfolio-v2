@@ -1,21 +1,23 @@
 <template>
   <nav class="navbar">
     
-    <!-- LEFT SIDE -->
+    <!-- LEFT SIDE: Logo / Name -->
     <div class="nav-left">
-      <span>LEFT SIDE PLACEHOLDER</span>
+      <span>JAMES JOHNSTON</span>
     </div>
 
-    <!-- MIDDLE SIDE -->
+    <!-- MIDDLE SIDE: Links -->
     <div class="nav-center">
-      <span>Link 1</span>
-      <span>Link 2</span>
-      <span>Link 3</span>
+      <a href="#projects">01 // PROJECTS</a>
+      <a href="#toolkit">02 // TOOLKIT</a>
+      <a href="#about">03 // ABOUT</a>
+      <a href="#gallery">04 // GALLERY</a>
+      <a href="#contact">05 // CONTACT</a>
     </div>
 
-    <!-- RIGHT SIDE -->
+    <!-- RIGHT SIDE: Empty for now (CV is in Hero) -->
     <div class="nav-right">
-      <span>RIGHT SIDE PLACEHOLDER</span>
+      <!-- We can add social icons or a "Back to top" here later -->
     </div>
 
   </nav>
@@ -35,7 +37,6 @@
   color: var(--brown);
   border-bottom: 1px solid var(--brown); 
   
-  /* Change to fixed */
   position: fixed;
   top: 0;
   left: 0;
@@ -48,21 +49,27 @@
   gap: 2rem;
 }
 
-.nav-left, .nav-center, .nav-right {
+.nav-left span, .nav-center a {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 700;
+  color: var(--brown);
+  text-decoration: none;
 }
 
-/* Optional: Add a subtle hover effect to the links */
-.nav-center span {
-  cursor: pointer;
+.nav-left span {
+  font-size: 0.9rem; /* Make your name slightly bigger */
+}
+
+/* Subtle hover effect for the links */
+.nav-center a {
   transition: opacity 0.2s ease;
 }
 
-.nav-center span:hover {
+.nav-center a:hover {
   opacity: 0.5;
+  text-decoration: line-through; /* Adds a cool editorial strike-through on hover */
 }
 </style>
