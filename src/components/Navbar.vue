@@ -30,9 +30,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid #ddd;
-  background-color: transparent;
+  /* Changed padding to match the Hero section (4rem sides) */
+  padding: 1.5rem 4rem; 
+  /* Added color and border to match Figma */
+  background-color: #50DCE8; 
+  color: #382319;
+  border-bottom: 1px solid rgba(56, 35, 25, 0.2);
 }
 
 .nav-center {
@@ -41,6 +44,11 @@
 }
 
 .nav-left, .nav-center, .nav-right {
-  font-size: 0.9rem;
+  /* Added the monospace font for the dev vibe */
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
 }
 </style>
