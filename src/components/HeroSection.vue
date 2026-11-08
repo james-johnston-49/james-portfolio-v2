@@ -126,6 +126,9 @@ const prevImage = () => {
   display: flex;
   flex-direction: column;
   border-bottom: 2px solid var(--brown); 
+  
+  /* ADD THIS LINE */
+  min-height: 100vh; 
 }
 
 .hero-header {

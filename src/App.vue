@@ -14,14 +14,16 @@ import Navbar from './components/Navbar.vue'
 
 <style>
 .app-wrapper {
-  min-height: 100vh;
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 .main-content {
   width: 100%;
-  flex-grow: 1;
+  /* Ensure this doesn't have overflow: hidden */
+  display: flex;
+  flex-direction: column;
 }
 </style>
