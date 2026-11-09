@@ -76,10 +76,13 @@
 .contact-section {
   background-color: var(--brown); 
   color: var(--cyan); 
-  padding: 6rem 4rem 2rem 4rem; 
+  padding: 4rem 4rem 2rem 4rem; /* Reduced top padding from 6rem to 4rem */
+  
+  /* CHANGED: Removed min-height: 80vh and replaced it with auto */
+  min-height: auto; 
+  
   display: flex;
   flex-direction: column;
-  min-height: 80vh;
   border-top: 2px solid var(--brown);
 }
 
@@ -92,7 +95,7 @@
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem; /* Reduced from 4rem */
 }
 
 .dot {
@@ -107,21 +110,21 @@
   display: grid;
   grid-template-columns: 1.2fr 0.8fr; 
   gap: 4rem;
-  flex-grow: 1;
+  /* Removed flex-grow: 1 so it doesn't stretch to fill the screen */
 }
 
 /* --- LEFT SIDE --- */
 .contact-left {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start; /* Changed from space-between to flex-start */
 }
 
 .contact-headline {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 8.5rem; 
   line-height: 0.9;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem; /* Reduced from 4rem */
   letter-spacing: 0.02em;
 }
 
@@ -140,25 +143,24 @@
   letter-spacing: 0.05em;
 }
 
-/* CHANGED: Email hover goes to Cream */
+/* ... Keep Email and Phone styles exactly the same ... */
 .email-link {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 4rem;
-  color: var(--cream);
+  color: var(--cream); 
   text-decoration: none;
   letter-spacing: 0.02em;
-  transition: color 0.3s ease; /* Changed to color transition */
+  transition: color 0.3s ease;
   width: fit-content;
 }
 
 .email-link:hover {
-  color: var(--cream);
+  color: var(--cyan);
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 6px;
 }
 
-/* CHANGED: Phone hover goes to Cream */
 .phone-link {
   font-family: 'JetBrains Mono', monospace;
   font-size: 1.1rem;
@@ -166,18 +168,18 @@
   text-decoration: none;
   font-weight: 700;
   margin-top: 1rem;
-  transition: color 0.2s ease; /* Changed to color transition */
+  transition: color 0.2s ease;
 }
 
 .phone-link:hover {
-  color: var(--cream);
+  color: var(--cyan);
 }
 
 /* --- RIGHT SIDE --- */
 .contact-right {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; 
+  justify-content: flex-start; /* Aligns links to the top instead of bottom */
 }
 
 .social-links {
@@ -204,14 +206,13 @@
   opacity: 0.8;
 }
 
-/* CHANGED: Social handles hover goes to Cream */
 .social-handle {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--cyan);
   text-decoration: none;
-  transition: color 0.2s ease; /* Changed to color transition */
+  transition: color 0.2s ease; 
 }
 
 .social-handle:hover {
@@ -225,7 +226,10 @@
   align-items: flex-end;
   border-top: 1px solid rgba(80, 220, 232, 0.2);
   padding-top: 2rem;
-  margin-top: 6rem;
+  
+  /* CHANGED: Reduced margin-top from 6rem to 3rem */
+  margin-top: 3rem; 
+  
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.65rem;
   font-weight: 700;
@@ -249,7 +253,7 @@
 @media (max-width: 900px) {
   .contact-grid {
     grid-template-columns: 1fr; 
-    gap: 4rem;
+    gap: 3rem; /* Reduced gap on mobile too */
   }
   
   .contact-headline {
@@ -258,10 +262,6 @@
   
   .email-link {
     font-size: 2.5rem;
-  }
-  
-  .contact-right {
-    justify-content: flex-start;
   }
   
   .footer-bottom {
