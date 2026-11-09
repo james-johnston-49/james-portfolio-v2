@@ -92,7 +92,7 @@ import profileImage from '../assets/images/profile_image.jpg'
 
 .header-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 7.5rem; 
+  font-size: 7rem; 
   line-height: 0.9;
   letter-spacing: 0.03em;
   margin: 0;
@@ -100,8 +100,13 @@ import profileImage from '../assets/images/profile_image.jpg'
 
 .hero-content {
   display: grid;
-  grid-template-columns: 1fr 1.2fr; 
-  gap: 3rem;
+  
+  /* CHANGED: 1.1fr for text (left), 1fr for image (right) */
+  grid-template-columns: 1.1fr 1fr; 
+  
+  /* CHANGED: Increased gap from 3rem to 5rem */
+  gap: 5rem; 
+  
   align-items: start; 
 }
 
@@ -117,38 +122,44 @@ import profileImage from '../assets/images/profile_image.jpg'
   font-weight: 700;
   letter-spacing: 0.05em;
   margin-top: 3rem;
-  margin-bottom: 1.5rem; /* Slightly reduced */
+  margin-bottom: 1rem; 
 }
 
-.text-block { display: flex; flex-direction: column; }
+.text-block { display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
 
 .hero-headline {
   font-family: 'Bebas Neue', sans-serif;
-  /* CHANGED: Reduced from 6.5rem to 5.5rem */
-  font-size: 5.5rem; 
+  font-size: 5rem; 
   line-height: 0.9; 
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem; 
   letter-spacing: 0.02em;
 }
 
 .hero-subheadline {
   font-family: 'Inter', sans-serif;
   font-style: italic;
-  font-size: 1.2rem;
+  font-size: 1.1rem; 
   line-height: 1.4;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem; 
   max-width: 90%;
 }
 
 .hero-intro {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-size: 0.95rem; 
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem; 
   max-width: 90%;
 }
 
-.hero-actions { display: flex; gap: 1rem; margin-top: 1rem; }
+.hero-actions { 
+  display: flex; 
+  gap: 1rem; 
+  margin-top: 0.5rem; 
+}
 
 .btn-primary {
   display: inline-block;
@@ -199,14 +210,17 @@ import profileImage from '../assets/images/profile_image.jpg'
 
 .terminal-frame {
   width: 100%;
-  aspect-ratio: 4 / 3; 
+  
+  /* You can adjust this aspect ratio if the image gets too narrow */
+  aspect-ratio: 16 / 12.3; 
+  
   background-color: var(--brown); 
   position: relative; 
   overflow: hidden; 
   display: grid;
   grid-template-rows: auto 1fr auto; 
   padding: 1.5rem; 
-  margin-top: 0;
+  margin-top: 0.5rem;
 }
 
 .terminal-top {
@@ -238,7 +252,7 @@ import profileImage from '../assets/images/profile_image.jpg'
   width: 100%;
   height: 100%;
   object-fit: cover; 
-  object-position: center 20%; 
+  object-position: center 18%; 
 }
 
 .terminal-bottom {
@@ -266,6 +280,7 @@ import profileImage from '../assets/images/profile_image.jpg'
 @media (max-width: 900px) {
   .hero-content {
     grid-template-columns: 1fr;
+    gap: 3rem;
   }
   
   .header-name {
@@ -273,7 +288,7 @@ import profileImage from '../assets/images/profile_image.jpg'
   }
   
   .hero-headline {
-    font-size: 4.5rem; /* Reduced for mobile too */
+    font-size: 4.5rem; 
   }
   
   .hero-text {
