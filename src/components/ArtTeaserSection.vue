@@ -26,14 +26,61 @@
     <!-- BOTTOM SECTION: THE ART -->
     <div class="art-display-grid">
       
-      <!-- LEFT IMAGE -->
-      <div class="art-piece left-piece">
-        <div class="polaroid">
-          <div class="polaroid-image-wrapper">
-            <img :src="mossCat" alt="Moss Cat Creature" />
+      <!-- LEFT COLUMN: Polaroid + Color Fan -->
+      <div class="left-column">
+        
+        <!-- LEFT IMAGE -->
+        <div class="art-piece left-piece">
+          <div class="polaroid">
+            <div class="polaroid-image-wrapper">
+              <img :src="mossCat" alt="Moss Cat Creature" />
+            </div>
+            <div class="polaroid-caption">// FIG. A / CHARACTER STUDY</div>
           </div>
-          <div class="polaroid-caption">// FIG. A / CHARACTER STUDY</div>
         </div>
+
+        <!-- THE COLOR FAN -->
+        <div class="color-fan-wrapper">
+          <div class="color-fan">
+            
+            <div class="swatch-card dark-slate">
+              <div class="text-container">
+                <span class="hex">#2d2d2d</span>
+                <span class="color-name">Carbon Slate</span>
+              </div>
+            </div>
+            
+            <div class="swatch-card gold">
+              <div class="text-container">
+                <span class="hex">#d4af37</span>
+                <span class="color-name">Old Gold</span>
+              </div>
+            </div>
+            
+            <div class="swatch-card open-book">
+              <div class="text-container">
+                <span class="hex">#f5f0e6</span>
+                <span class="color-name">Open Book</span>
+              </div>
+            </div>
+            
+            <div class="swatch-card clover">
+              <div class="text-container">
+                <span class="hex">#4a7c59</span>
+                <span class="color-name">Irish Clover</span>
+              </div>
+            </div>
+            
+            <div class="swatch-card regents">
+              <div class="text-container">
+                <span class="hex">#1a3d1a</span>
+                <span class="color-name">Queen of Trees</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
       <!-- RIGHT IMAGE -->
@@ -73,9 +120,10 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
 .art-teaser-section {
   background-color: var(--cream); 
   color: var(--brown);
-  padding: 8rem 4rem 10rem 4rem; 
+  padding: 8rem 4rem 17rem 4rem; 
   border-bottom: 2px solid var(--brown);
   overflow: hidden; 
+  position: relative; 
 }
 
 /* --- TOP SECTION --- */
@@ -148,8 +196,16 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
 .art-display-grid {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr; 
-  gap: 2rem; 
+  gap: 4rem; 
   align-items: start;
+}
+
+/* Left Column */
+.left-column {
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
 }
 
 .art-piece {
@@ -205,11 +261,91 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
   letter-spacing: 0.05em;
 }
 
-/* Shift left image UP slightly to align better */
-.left-piece {
-  margin-top: 2rem; 
+/* --- THE COLOR FAN --- */
+.color-fan-wrapper {
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  margin-top: 12rem; 
+  margin-left: 13rem;
+  transform: rotate(25deg); 
+  display: flex;
+  flex-direction: column;
 }
 
+.color-fan {
+  position: relative;
+  height: 350px; 
+  width: 500px;
+  cursor: pointer;
+}
+
+.swatch-card {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px; 
+  height: 350px; 
+  border-radius: 12px;
+  transform-origin: bottom center;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  
+  display: flex;
+  
+  /* CHANGED: Aligns text to the top of the card */
+  align-items: flex-start; 
+  justify-content: flex-start;
+  
+  /* CHANGED: Padding moved to top to push text away from the edge */
+  padding-top: 2rem; 
+  padding-left: 0.8rem; 
+  overflow: hidden;
+}
+
+/* TEXT CONTAINER INSIDE THE CARDS */
+.text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  
+  /* To make the text readable at the top, we keep it vertical but flip it */
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg); 
+}
+
+.swatch-card .hex {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem; 
+  font-weight: 700;
+}
+
+.swatch-card .color-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  opacity: 0.9;
+}
+
+/* 
+  DEFAULT FANNED STATE 
+*/
+.dark-slate { background-color: #2d2d2d; color: #fff; transform: rotate(-40deg); z-index: 1; }
+.gold { background-color: #d4af37; color: #000; transform: rotate(-20deg); z-index: 2; }
+
+/* CHANGED: Stronger border on the white card */
+.open-book { background-color: #f5f0e6; color: #000; transform: rotate(0deg); z-index: 3; border: 2px solid #d1c7b8; }
+
+.clover { background-color: #4a7c59; color: #fff; transform: rotate(20deg); z-index: 4; }
+.regents { background-color: #1a3d1a; color: #fff; transform: rotate(40deg); z-index: 5; }
+
+/* HOVER EFFECT */
+.color-fan:hover .dark-slate { transform: rotate(-60deg) translateY(-10px); }
+.color-fan:hover .gold { transform: rotate(-30deg) translateY(-15px); }
+.color-fan:hover .open-book { transform: rotate(0deg) translateY(-20px); }
+.color-fan:hover .clover { transform: rotate(30deg) translateY(-15px); }
+.color-fan:hover .regents { transform: rotate(60deg) translateY(-10px); }
+
+/* Bottom blurb area */
 .bottom-blurb-area {
   margin-top: 1.5rem;
   display: flex;
@@ -246,6 +382,10 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
 
 /* Mobile Fallback */
 @media (max-width: 900px) {
+  .art-teaser-section {
+    padding-bottom: 8rem; 
+  }
+  
   .art-header-grid, .art-display-grid {
     grid-template-columns: 1fr; 
     gap: 3rem;
@@ -255,12 +395,16 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
     font-size: 5rem;
   }
   
-  .left-piece {
-    margin-top: 0; 
+  .left-column {
+    margin-top: 0;
   }
   
   .left-piece .polaroid, .right-piece .polaroid {
     transform: rotate(0deg); 
+  }
+  
+  .color-fan-wrapper {
+    display: none; 
   }
 }
 </style>
