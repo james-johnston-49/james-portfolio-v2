@@ -14,16 +14,16 @@ import Navbar from './components/Navbar.vue'
 
 <style>
 .app-wrapper {
-  width: 100%;
   min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  /* This is the magic line to stop scrollbars */
+  overflow-x: hidden; 
 }
 
 .main-content {
   width: 100%;
-  /* Ensure this doesn't have overflow: hidden */
-  display: flex;
-  flex-direction: column;
+  flex-grow: 1;
 }
 </style>
