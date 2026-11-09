@@ -106,7 +106,7 @@
 
 .header-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 7rem;
+  font-size: 6rem; /* Changed from 7rem */
   line-height: 0.9;
   margin: 0;
 }

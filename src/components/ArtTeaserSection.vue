@@ -110,7 +110,7 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
 
 .header-title-main {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 6rem; /* Slightly smaller to reduce height */
+  font-size: 6rem; /* Changed from 7rem */
   line-height: 0.9;
   margin: 0;
 }

@@ -108,7 +108,7 @@
 
 .about-headline {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 6.5rem;
+  font-size: 6rem; /* Changed from 6.5rem */
   line-height: 0.9;
   margin-bottom: 1rem;
   letter-spacing: 0.02em;

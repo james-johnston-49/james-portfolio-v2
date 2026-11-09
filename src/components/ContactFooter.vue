@@ -122,9 +122,9 @@
 
 .contact-headline {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 8.5rem; 
+  font-size: 7rem; /* You can drop this to 6rem or 6.5rem */
   line-height: 0.9;
-  margin-bottom: 2rem; /* Reduced from 4rem */
+  margin-bottom: 3rem; 
   letter-spacing: 0.02em;
 }
 
