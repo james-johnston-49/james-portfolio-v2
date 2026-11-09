@@ -1,74 +1,68 @@
 <template>
   <section class="about-section" id="about">
     
-    <!-- Section Header -->
-    <div class="section-header">
-      <div class="header-label">03 // ABOUT</div>
-      <h2 class="header-title">A BUILDER'S MIND.</h2>
-    </div>
-
-    <div class="about-content">
+    <!-- TOP SECTION: Split layout -->
+    <div class="about-top-grid">
       
-      <!-- LEFT SIDE: The Photo -->
-      <div class="about-image-area">
-        <div class="image-frame">
-          <div class="image-top-bar">
-            <span>// JAMES_JOHNSTON.JPG</span>
-            <span class="dot"></span>
-          </div>
-          
-          <img :src="profileImage" alt="James Johnston" class="profile-img" />
-          
-          <div class="image-bottom-bar">
-            <span>SOFTWARE DEVELOPER</span>
-            <span>EST. 2024</span>
-          </div>
+      <!-- Left: Big Headlines -->
+      <div class="about-left">
+        <div class="header-label">
+          <span class="dot"></span> 03 // ABOUT
         </div>
+        
+        <h2 class="about-headline">
+          A BUILDER'S<br />
+          MIND.
+        </h2>
+        
+        <p class="about-subheadline">
+          Different tools. The same curiosity.
+        </p>
       </div>
 
-      <!-- RIGHT SIDE: The Text & Terminal -->
-      <div class="about-text-area">
-        
-        <p class="about-intro">
+      <!-- Right: Paragraphs & CV -->
+      <div class="about-right">
+        <!-- Fancy Intro -->
+        <p class="about-intro-fancy">
           I am a software developer who believes that technical logic and visual storytelling aren't enemies—they're a team. I specialize in building web applications that are fast, functional, and intuitive to use.
         </p>
-        
+        <!-- Standard Body -->
         <p class="about-body">
           Because I also work as a digital artist, I don't just build the logic; I understand how to structure the UI so it feels natural to the user. I approach every project with a builder's mind, but I code with an artist's eye. Ultimately, my goal is simple: to make something that works, and makes people feel something.
         </p>
-
-        <!-- Styled CV Button -->
+        
         <div class="about-actions">
           <a href="#" class="btn-cv" target="_blank">DOWNLOAD CV ↓</a>
         </div>
+      </div>
 
-        <!-- The Terminal Block with Title -->
-        <div class="terminal-wrapper">
-          <div class="terminal-title">// RANDOM FACTS & CURRENT STATUS</div>
-          
-          <div class="terminal-block">
-            <div class="terminal-line">
-              <span class="terminal-key">CURRENTLY_BUILDING:</span>
-              <span class="terminal-value">This Portfolio</span>
-            </div>
-            <div class="terminal-line">
-              <span class="terminal-key">CURRENTLY_LEARNING:</span>
-              <span class="terminal-value">Advanced Vue & UX Research</span>
-            </div>
-            <div class="terminal-line">
-              <span class="terminal-key">FUEL:</span>
-              <span class="terminal-value">Iced Coffee & Lo-fi Beats</span>
-            </div>
-          </div>
+    </div>
+
+    <!-- BOTTOM SECTION: Terminal Block -->
+    <div class="terminal-wrapper">
+      <div class="terminal-title">// RANDOM FACTS & CURRENT STATUS</div>
+      
+      <div class="terminal-block">
+        <div class="terminal-line">
+          <span class="terminal-key">CURRENTLY_BUILDING:</span>
+          <span class="terminal-value">This Portfolio</span>
         </div>
-
+        <div class="terminal-line">
+          <span class="terminal-key">CURRENTLY_LEARNING:</span>
+          <span class="terminal-value">Advanced Vue & UX Research</span>
+        </div>
+        <div class="terminal-line">
+          <span class="terminal-key">FUEL:</span>
+          <span class="terminal-value">Iced Coffee & Lo-fi Beats</span>
+        </div>
       </div>
     </div>
+
   </section>
 </template>
 
 <script setup>
-import profileImage from '../assets/images/profile_image.jpg'
+// No script logic needed
 </script>
 
 <style scoped>
@@ -76,108 +70,88 @@ import profileImage from '../assets/images/profile_image.jpg'
 .about-section {
   background-color: var(--cyan); 
   color: var(--brown);
-  padding: 8rem 4rem; 
+  padding: 3rem 4rem 5rem 4rem; 
   border-bottom: 2px solid var(--brown);
 }
 
-/* Section Header */
-.section-header {
-  margin-bottom: 5rem;
-}
-
-.header-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  margin-bottom: 1rem;
-}
-
-.header-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 7rem;
-  line-height: 0.9;
-  margin: 0;
-}
-
-/* Layout Grid */
-.about-content {
+/* --- TOP GRID --- */
+.about-top-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr; 
-  gap: 5rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem; 
   align-items: start; 
+  margin-bottom: 4rem; 
 }
 
-/* --- LEFT SIDE: PHOTO FRAME --- */
-.about-image-area {
-  display: flex;
-  justify-content: flex-start; 
-}
-
-.image-frame {
-  background-color: var(--brown);
-  padding: 1rem;
-  width: 100%;
-  max-width: 500px;
-  border-radius: 0.5rem;
-  box-shadow: 10px 10px 0 rgba(56, 35, 25, 0.2); 
+.about-left {
   display: flex;
   flex-direction: column;
 }
 
-.image-top-bar, .image-bottom-bar {
+.header-label {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  color: var(--cyan);
+  font-size: 0.75rem;
+  font-weight: 700;
   letter-spacing: 0.05em;
-  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
 }
 
 .dot {
   width: 6px;
   height: 6px;
-  background-color: var(--cyan);
+  background-color: var(--brown);
   border-radius: 50%;
 }
 
-.profile-img {
-  width: 100%;
-  flex-grow: 1; 
-  object-fit: cover; 
-  border-radius: 0.25rem;
-  display: block;
+.about-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 6.5rem;
+  line-height: 0.9;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
 }
 
-/* --- RIGHT SIDE: TEXT & TERMINAL --- */
-.about-text-area {
+.about-subheadline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.8rem;
+  opacity: 0.9;
+}
+
+/* --- RIGHT SIDE TEXT --- */
+.about-right {
   display: flex;
   flex-direction: column;
-  padding-top: 2.5rem; 
+  
+  /* CHANGED: Increased padding-top from 2rem to 4rem to shift the text down */
+  padding-top: 4rem; 
 }
 
-.about-intro {
-  font-family: 'Inter', sans-serif;
+.about-intro-fancy {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
   font-size: 1.4rem;
-  line-height: 1.6;
-  font-weight: 500;
+  line-height: 1.5;
   margin-bottom: 1.5rem;
+  color: var(--brown);
 }
 
 .about-body {
   font-family: 'Inter', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 2rem;
-  max-width: 95%;
+  opacity: 0.9;
 }
 
-/* STYLED CV BUTTON (Matches Hero Secondary) */
 .about-actions {
-  margin-bottom: 3rem;
+  margin-top: 1rem;
 }
 
+/* CV Button */
 .btn-cv {
   display: inline-block;
   background-color: var(--cream);
@@ -199,69 +173,72 @@ import profileImage from '../assets/images/profile_image.jpg'
   color: var(--cream);
 }
 
-/* Terminal Wrapper with Title */
+/* --- BOTTOM TERMINAL --- */
 .terminal-wrapper {
-  background-color: rgba(56, 35, 25, 0.1); 
-  border: 1px dashed var(--brown);
+  background-color: var(--brown); 
+  color: var(--cyan);
   border-radius: 0.5rem;
-  max-width: 95%;
   overflow: hidden; 
-  margin-top: 2rem; 
+  max-width: 100%;
 }
 
 .terminal-title {
-  background-color: rgba(56, 35, 25, 0.15); 
-  border-bottom: 1px dashed var(--brown);
-  padding: 0.5rem 1.5rem;
+  background-color: rgba(0, 0, 0, 0.2); 
+  border-bottom: 1px solid rgba(80, 220, 232, 0.2);
+  padding: 0.75rem 1.5rem; 
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  color: var(--brown);
+  color: var(--cyan);
 }
 
 .terminal-block {
-  padding: 1.5rem;
+  padding: 3rem 1.5rem; 
   display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+  flex-direction: row; 
+  justify-content: space-between;
+  gap: 2rem;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.85rem;
 }
 
 .terminal-line {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.5rem; 
 }
 
 .terminal-key {
   font-weight: 700;
-  color: var(--brown);
+  color: var(--cream); 
   opacity: 0.7;
 }
 
 .terminal-value {
-  color: var(--brown);
+  color: var(--cyan);
+  font-weight: 500;
 }
 
 /* Mobile Fallback */
 @media (max-width: 900px) {
-  .about-content {
+  .about-top-grid {
     grid-template-columns: 1fr; 
-    gap: 4rem;
+    gap: 2rem;
   }
   
-  .header-title {
+  .about-headline {
     font-size: 5rem;
   }
   
-  .image-frame {
-    max-width: 100%;
+  .about-right {
+    padding-top: 0; /* Reset on mobile */
   }
-  
-  .terminal-line {
+
+  .terminal-block {
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 1rem;
+    padding: 2rem 1.5rem; 
   }
 }
 </style>

@@ -86,7 +86,8 @@ import profileImage from '../assets/images/profile_image.jpg'
 
 .hero-header {
   border-bottom: 1px solid rgba(56, 35, 25, 0.2);
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
   margin-bottom: 1rem;
 }
 
