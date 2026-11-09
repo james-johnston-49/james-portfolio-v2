@@ -124,7 +124,7 @@
   font-family: 'Bebas Neue', sans-serif;
   font-size: 8.5rem; 
   line-height: 0.9;
-  margin-bottom: 3rem; /* Reduced from 4rem */
+  margin-bottom: 2rem; /* Reduced from 4rem */
   letter-spacing: 0.02em;
 }
 
@@ -228,7 +228,7 @@
   padding-top: 2rem;
   
   /* CHANGED: Reduced margin-top from 6rem to 3rem */
-  margin-top: 3rem; 
+  margin-top: 1.5rem; 
   
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.65rem;

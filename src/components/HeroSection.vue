@@ -39,50 +39,25 @@
 
       </div>
 
-      <!-- RIGHT SIDE: THE CAROUSEL -->
+      <!-- RIGHT SIDE: PROFILE IMAGE IN TERMINAL FRAME -->
       <div class="hero-image-area">
-        <div class="carousel-frame">
+        <div class="terminal-frame">
           
           <!-- TOP BAR -->
           <div class="terminal-top">
-            <span>A LOT OF IMAGINATION.</span>
+            <span>// PROFILE_IMAGE.JPG</span>
             <span class="terminal-dot"></span>
           </div>
 
-          <!-- IMAGE AREA -->
+          <!-- IMAGE -->
           <div class="terminal-image-wrapper">
-            <div 
-              v-for="(image, index) in images" 
-              :key="index"
-              class="carousel-slide"
-              :class="{ active: index === activeIndex }"
-            >
-              <img :src="image.src" :alt="image.alt" />
-            </div>
-            
-            <!-- MANUAL ARROWS -->
-            <button class="nav-arrow left" @click="prevImage">←</button>
-            <button class="nav-arrow right" @click="nextImage">→</button>
-
-            <!-- NEW: OVERLAY BUTTON -->
-            <a href="/art" class="btn-gallery-overlay">VIEW GALLERY ↗</a>
+            <img :src="profileImage" alt="James Johnston" />
           </div>
 
           <!-- BOTTOM BAR -->
           <div class="terminal-bottom">
-            <span class="footer-script">Characters welcome here.</span>
-            <span class="footer-meta">ORIGINAL<br>ART / JJ</span>
-          </div>
-          
-          <!-- Dots -->
-          <div class="carousel-dots">
-            <span 
-              v-for="(image, index) in images" 
-              :key="'dot-' + index"
-              class="dot"
-              :class="{ active: index === activeIndex }"
-              @click="activeIndex = index"
-            ></span>
+            <span class="footer-script">A builder's mind.</span>
+            <span class="footer-meta">DEVELOPER<br>ARTIST / JJ</span>
           </div>
 
         </div>
@@ -94,27 +69,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
-import mossCat from '../assets/art/moss-cat-creature.png'
-import poisonIvy from '../assets/art/absolute-poison-ivy.png'
-// import reptile from '../assets/art/reptilian-creature.png'
-// import kyren from '../assets/art/kyre-character-sheet.png'
-
-const images = ref([
-  { src: mossCat, alt: 'Moss Cat Creature' }, 
-  { src: poisonIvy, alt: 'Poison Ivy' },
-])
-
-const activeIndex = ref(0)
-
-const nextImage = () => {
-  activeIndex.value = (activeIndex.value + 1) % images.value.length
-}
-
-const prevImage = () => {
-  activeIndex.value = (activeIndex.value - 1 + images.value.length) % images.value.length
-}
+import profileImage from '../assets/images/profile_image.jpg'
 </script>
 
 <style scoped>
@@ -122,24 +77,22 @@ const prevImage = () => {
 .hero-section {
   background-color: var(--cyan); 
   color: var(--brown); 
-  padding: 7rem 4rem 4rem 4rem; 
+  padding: 5rem 4rem 4rem 4rem; 
   display: flex;
   flex-direction: column;
   border-bottom: 2px solid var(--brown); 
-  
-  /* ADD THIS LINE */
   min-height: 100vh; 
 }
 
 .hero-header {
   border-bottom: 1px solid rgba(56, 35, 25, 0.2);
   padding-bottom: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .header-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 9rem; 
+  font-size: 7.5rem; 
   line-height: 0.9;
   letter-spacing: 0.03em;
   margin: 0;
@@ -164,14 +117,15 @@ const prevImage = () => {
   font-weight: 700;
   letter-spacing: 0.05em;
   margin-top: 3rem;
-  margin-bottom: 1.7rem;
+  margin-bottom: 1.5rem; /* Slightly reduced */
 }
 
 .text-block { display: flex; flex-direction: column; }
 
 .hero-headline {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 6.5rem; 
+  /* CHANGED: Reduced from 6.5rem to 5.5rem */
+  font-size: 5.5rem; 
   line-height: 0.9; 
   margin-bottom: 1.5rem;
   letter-spacing: 0.02em;
@@ -235,15 +189,15 @@ const prevImage = () => {
   color: var(--cream);
 }
 
-/* --- CAROUSEL STYLES --- */
+/* --- TERMINAL FRAME STYLES --- */
 .hero-image-area {
   display: flex;
   width: 100%;
   justify-content: flex-end;
-  margin-top: 3rem; 
+  margin-top: 1rem; 
 }
 
-.carousel-frame {
+.terminal-frame {
   width: 100%;
   aspect-ratio: 4 / 3; 
   background-color: var(--brown); 
@@ -252,6 +206,7 @@ const prevImage = () => {
   display: grid;
   grid-template-rows: auto 1fr auto; 
   padding: 1.5rem; 
+  margin-top: 0;
 }
 
 .terminal-top {
@@ -279,67 +234,13 @@ const prevImage = () => {
   overflow: hidden;
 }
 
-.carousel-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0; 
-  transition: opacity 0.5s ease-in-out; 
-}
-
-.carousel-slide.active { opacity: 1; }
-
-.carousel-slide img {
+.terminal-image-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover; 
+  object-position: center 20%; 
 }
 
-.nav-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(56, 35, 25, 0.7);
-  color: var(--cyan);
-  border: 1px solid var(--cyan);
-  font-size: 1.2rem;
-  padding: 0.5rem 0.8rem;
-  cursor: pointer;
-  z-index: 10;
-  transition: background 0.2s ease;
-}
-
-.nav-arrow:hover { background: var(--brown); }
-.nav-arrow.left { left: 1rem; }
-.nav-arrow.right { right: 1rem; }
-
-/* --- THE OVERLAY BUTTON --- */
-.btn-gallery-overlay {
-  position: absolute;
-  bottom: 1rem; /* Distance from the bottom of the image */
-  right: 1rem; /* Distance from the right of the image */
-  background-color: var(--cream);
-  color: var(--brown);
-  padding: 0.8rem 1.5rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 700;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  border: 2px solid var(--brown);
-  z-index: 10; /* Ensures it stays on top of the images and arrows */
-  transition: all 0.2s ease;
-}
-
-.btn-gallery-overlay:hover {
-  background-color: var(--brown);
-  color: var(--cream);
-}
-
-/* --- BOTTOM BAR --- */
 .terminal-bottom {
   display: flex;
   justify-content: space-between;
@@ -361,24 +262,22 @@ const prevImage = () => {
   line-height: 1.2;
 }
 
-.carousel-dots {
-  position: absolute;
-  bottom: 0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.5rem;
-  z-index: 10;
+/* Mobile Fallback */
+@media (max-width: 900px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .header-name {
+    font-size: 5rem;
+  }
+  
+  .hero-headline {
+    font-size: 4.5rem; /* Reduced for mobile too */
+  }
+  
+  .hero-text {
+    margin-top: 0;
+  }
 }
-
-.dot {
-  width: 6px;
-  height: 6px;
-  background-color: rgba(80, 220, 232, 0.3);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.dot.active { background-color: var(--cyan); }
 </style>
