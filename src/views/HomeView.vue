@@ -3,9 +3,10 @@
     <HeroSection />
     <ProjectsSection />
     <ToolkitSection />
-    
-    <!-- Add the About section here -->
     <AboutSection />
+    
+    <!-- Add the Art Teaser here -->
+    <ArtTeaserSection />
 
   </div>
 </template>
@@ -15,6 +16,7 @@ import HeroSection from '../components/HeroSection.vue'
 import ProjectsSection from '../components/ProjectsSection.vue'
 import ToolkitSection from '../components/ToolkitSection.vue'
 import AboutSection from '../components/AboutSection.vue'
+import ArtTeaserSection from '../components/ArtTeaserSection.vue'
 </script>
 
 <style scoped>
