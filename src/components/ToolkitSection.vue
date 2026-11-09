@@ -86,7 +86,7 @@
 /* Main Container */
 .toolkit-section {
   background-color: var(--brown); 
-  color: var(--cyan);
+  color: var(--cyan); /* Keep base text cyan */
   padding: 8rem 4rem; 
   border-bottom: 2px solid var(--brown);
 }
@@ -125,6 +125,7 @@
   flex-direction: column;
 }
 
+/* CHANGED: Column titles are now Cream */
 .column-title {
   font-family: 'JetBrains Mono', monospace;
   font-size: 1rem;
@@ -132,7 +133,8 @@
   letter-spacing: 0.1em;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(80, 220, 232, 0.3); /* Faded cyan line */
+  color: var(--cream); 
+  border-bottom: 1px solid rgba(80, 220, 232, 0.3); 
 }
 
 /* Skill Lists */
@@ -148,6 +150,7 @@
 .skill-list li {
   font-family: 'Inter', sans-serif;
   font-size: 1.1rem;
+  color: var(--cyan); /* Explicitly cyan */
 }
 
 /* Certificates Area */
@@ -168,22 +171,29 @@
 }
 
 .cert-row:hover {
-  background-color: rgba(80, 220, 232, 0.05); /* Subtle highlight on hover */
+  background-color: rgba(80, 220, 232, 0.05); 
 }
 
 .cert-issuer {
   opacity: 0.7;
+  color: var(--cyan);
 }
 
+.cert-name {
+  color: var(--cyan);
+}
+
+/* CHANGED: View links are now Cream */
 .cert-link {
   text-align: right;
   font-weight: 700;
+  color: var(--cream); 
 }
 
 /* Mobile Fallback */
 @media (max-width: 900px) {
   .toolkit-grid {
-    grid-template-columns: 1fr; /* Stacks columns on mobile */
+    grid-template-columns: 1fr; 
     gap: 3rem;
   }
   
@@ -192,7 +202,7 @@
   }
   
   .cert-row {
-    grid-template-columns: 1fr; /* Stacks cert info on mobile */
+    grid-template-columns: 1fr; 
     gap: 0.5rem;
   }
   

@@ -4,9 +4,10 @@
     <ProjectsSection />
     <ToolkitSection />
     <AboutSection />
-    
-    <!-- Add the Art Teaser here -->
     <ArtTeaserSection />
+    
+    <!-- Add the Contact Footer here -->
+    <ContactFooter />
 
   </div>
 </template>
@@ -17,6 +18,7 @@ import ProjectsSection from '../components/ProjectsSection.vue'
 import ToolkitSection from '../components/ToolkitSection.vue'
 import AboutSection from '../components/AboutSection.vue'
 import ArtTeaserSection from '../components/ArtTeaserSection.vue'
+import ContactFooter from '../components/ContactFooter.vue'
 </script>
 
 <style scoped>
