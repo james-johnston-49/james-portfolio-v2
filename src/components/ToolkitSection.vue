@@ -86,8 +86,11 @@
 /* Main Container */
 .toolkit-section {
   background-color: var(--brown); 
-  color: var(--cyan); /* Keep base text cyan */
-  padding: 8rem 4rem; 
+  color: var(--cyan);
+  
+  /* CHANGED: Matches the About section padding */
+  padding: 3rem 4rem 5rem 4rem; 
+  
   border-bottom: 2px solid var(--brown);
 }
 

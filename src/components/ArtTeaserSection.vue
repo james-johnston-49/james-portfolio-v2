@@ -26,7 +26,7 @@
     <!-- BOTTOM SECTION: THE ART -->
     <div class="art-display-grid">
       
-      <!-- LEFT IMAGE -->
+      <!-- LEFT IMAGE + TEXT -->
       <div class="art-piece left-piece">
         <div class="polaroid">
           <div class="polaroid-image-wrapper">
@@ -34,18 +34,8 @@
           </div>
           <div class="polaroid-caption">// FIG. A / CHARACTER STUDY</div>
         </div>
-      </div>
-
-      <!-- RIGHT IMAGE -->
-      <div class="art-piece right-piece">
-        <div class="polaroid">
-          <div class="polaroid-image-wrapper">
-            <img :src="poisonIvy" alt="Poison Ivy" />
-          </div>
-          <div class="polaroid-caption">// FIG. B / PORTRAIT STUDY</div>
-        </div>
         
-        <!-- The bottom text under the right image -->
+        <!-- MOVED: Text and palette are now under the left image -->
         <div class="bottom-blurb-area">
           <div class="color-palette">
             <span class="swatch" style="background-color: #382319;"></span>
@@ -56,6 +46,16 @@
             A space for visual stories, character concepts, and following an idea just to see where it goes.
           </p>
           <span class="credit">ORIGINAL ARTWORK / JAMES JOHNSTON</span>
+        </div>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="art-piece right-piece">
+        <div class="polaroid">
+          <div class="polaroid-image-wrapper">
+            <img :src="poisonIvy" alt="Poison Ivy" />
+          </div>
+          <div class="polaroid-caption">// FIG. B / PORTRAIT STUDY</div>
         </div>
       </div>
 
@@ -73,10 +73,7 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
 .art-teaser-section {
   background-color: var(--cream); 
   color: var(--brown);
-  
-  /* CHANGED: Reduced padding from 8rem to 5rem on top and bottom */
-  padding: 5rem 4rem 5rem 4rem; 
-  
+  padding: 6rem 4rem; /* Balanced padding */
   border-bottom: 2px solid var(--brown);
   overflow: hidden; 
 }
@@ -86,8 +83,8 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
   display: grid;
   grid-template-columns: 1fr 1fr; 
   gap: 4rem;
-  margin-bottom: 3rem; /* Reduced from 4rem */
-  align-items: start; 
+  margin-bottom: 4rem; 
+  align-items: end; 
 }
 
 .header-label {
@@ -98,7 +95,7 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  margin-bottom: 1rem; /* Reduced from 1.5rem */
+  margin-bottom: 1rem;
 }
 
 .dot {
@@ -110,7 +107,7 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
 
 .header-title-main {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 6rem; /* Changed from 7rem */
+  font-size: 6rem; /* Matched to other sections */
   line-height: 0.9;
   margin: 0;
 }
@@ -119,14 +116,14 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: 2rem; 
+  padding-bottom: 0.5rem;
 }
 
 .art-blurb {
   font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   max-width: 90%;
 }
 
@@ -150,12 +147,9 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
 /* --- BOTTOM SECTION --- */
 .art-display-grid {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr; 
-  
-  /* CHANGED: Reduced gap from 6rem to 3rem */
-  gap: 3rem; 
-  
-  align-items: start; 
+  grid-template-columns: 0.9fr 1.1fr; /* Right image slightly larger */
+  gap: 5rem; 
+  align-items: start;
   max-width: 1100px; 
   margin: 0 auto; 
 }
@@ -166,15 +160,6 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
   gap: 1rem;
 }
 
-.left-piece {
-  margin-top: 1rem; 
-}
-
-.right-piece {
-  /* Kept the stagger, but reduced slightly */
-  margin-top: -3rem; 
-}
-
 /* THE POLAROID STYLING */
 .polaroid {
   background-color: #fff;
@@ -183,10 +168,17 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
   transition: transform 0.3s ease;
 }
 
-.left-piece .polaroid { transform: rotate(-2deg); }
-.right-piece .polaroid { transform: rotate(2deg); }
+.left-piece .polaroid {
+  transform: rotate(-2deg); 
+}
 
-.polaroid:hover { transform: rotate(0deg) scale(1.02); }
+.right-piece .polaroid {
+  transform: rotate(2deg); 
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.02);
+}
 
 .polaroid-image-wrapper {
   width: 100%;
@@ -215,17 +207,25 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
   letter-spacing: 0.05em;
 }
 
-/* Bottom blurb area */
+/* Moved Blurb Area */
 .bottom-blurb-area {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem; /* Reduced gap */
+  gap: 1rem;
   padding-left: 1rem; 
 }
 
-.color-palette { display: flex; gap: 0.5rem; }
-.swatch { width: 12px; height: 12px; border-radius: 2px; }
+.color-palette {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
 
 .small-blurb {
   font-family: 'Inter', sans-serif;
@@ -242,6 +242,15 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
   margin-top: 0.5rem;
 }
 
+/* Slight Stagger to make it dynamic */
+.left-piece {
+  margin-top: 2rem;
+}
+
+.right-piece {
+  margin-top: 0;
+}
+
 /* Mobile Fallback */
 @media (max-width: 900px) {
   .art-header-grid, .art-display-grid {
@@ -249,13 +258,16 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
     gap: 3rem;
   }
   
-  .header-title-main { font-size: 5rem; }
-  .header-right { padding-top: 0; }
-  
-  .left-piece, .right-piece { margin-top: 0; }
+  .header-title-main {
+    font-size: 5rem;
+  }
   
   .left-piece .polaroid, .right-piece .polaroid {
     transform: rotate(0deg); 
+  }
+
+  .left-piece {
+    margin-top: 0;
   }
 }
 </style>
