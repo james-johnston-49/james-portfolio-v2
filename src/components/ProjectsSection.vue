@@ -1,4 +1,3 @@
-
 <template>
   <section class="projects-section" id="projects">
 
@@ -47,7 +46,11 @@
 
                 <div class="detail-row">
                   <strong>ROLE:</strong>
-                  <span>{{ currentProject.role }}</span>
+                  <ul class="role-list">
+                    <li v-for="(roleItem, i) in currentProject.roles" :key="i">
+                      {{ roleItem }}
+                    </li>
+                  </ul>
                 </div>
 
                 <div class="detail-row">
@@ -57,22 +60,56 @@
 
               </div>
 
-              <a
-                :href="currentProject.link"
-                class="project-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                VIEW PROJECT ↗
-              </a>
-
             </div>
 
-            <!-- RIGHT: PROJECT IMAGE -->
-            <div class="project-image">
-              <div class="img-placeholder">
-                {{ currentProject.name }} UI
+            <!-- RIGHT: PROJECT IMAGE & LINKS -->
+            <div class="project-image-area">
+              
+              <div class="project-image">
+                <img 
+                  v-if="currentProject.image" 
+                  :src="currentProject.image" 
+                  :alt="currentProject.name + ' screenshot'" 
+                  class="project-screenshot"
+                />
+                <div v-else class="img-placeholder">
+                  {{ currentProject.name }} UI
+                </div>
               </div>
+
+              <!-- LINKS GROUP -->
+              <div class="project-links-group">
+                <a
+                  v-if="currentProject.link"
+                  :href="currentProject.link"
+                  class="project-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LIVE SITE ↗
+                </a>
+
+                <a
+                  v-if="currentProject.github"
+                  :href="currentProject.github"
+                  class="project-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GITHUB ↗
+                </a>
+
+                <a
+                  v-if="currentProject.figma"
+                  :href="currentProject.figma"
+                  class="project-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  FIGMA DESIGN ↗
+                </a>
+              </div>
+
             </div>
 
           </div>
@@ -106,77 +143,72 @@
 <script setup>
 import { ref, computed } from 'vue'
 
+// IMPORT IMAGES
+import gigbridgeImg from '../assets/images/gigbridge.png'
+import moderntechImg from '../assets/images/moderntech.png'
+import jamnImg from '../assets/images/jamn.png'
 
 // PROJECT DATA
 const projects = ref([
   {
     name: 'GigBridge',
-    date: 'MAR 2, 2024',
-
-    desc: 'A dual-sided freelance portal connecting early-career talent with small businesses needing agile support.',
-
-    tools: 'Vue.js / Python',
-
-    role: 'Full-Stack Developer & UI Designer',
-
-    stack: 'Vue.js, Python, MySQL, Figma',
-
+    date: 'JUNE 2026',
+    desc: 'A specialized, dual-sided freelance portal that bridges the gap between early-career talent seeking portfolio-building experience and small businesses needing agile, cost-effective support.',
+    tools: 'HTML / CSS / JS',
+    roles: [
+      'Unified CSS & Styling',
+      'Community Page Features',
+      'Wireframe Design'
+    ],
+    stack: 'HTML5, CSS3, JavaScript, Figma, Git & GitHub',
     colorClass: 'card-brown',
-
-    link: '#'
+    image: gigbridgeImg,
+    link: 'https://leratoyapi.github.io/lca-gigbridge-startup-launch/',
+    github: 'https://github.com/leratoyapi/lca-gigbridge-startup-launch',
+    figma: 'https://www.figma.com/design/ScHK2SBde0vTjTiXaQuwgZ/SKILLBRIDGE?node-id=0-1&t=VCK5146sENQSTqEn-0'
   },
 
   {
     name: 'ModernTech',
-    date: 'JAN 15, 2024',
-
-    desc: 'A full-stack HR portal replacing fragmented spreadsheet-and-email processes with a single, user-friendly system.',
-
-    tools: 'React / Node.js',
-
-    role: 'Front-End Developer',
-
-    stack: 'React, Node.js, Express, Figma',
-
+    date: 'AUG 2026', 
+    desc: 'A full-stack HR portal built to replace fragmented spreadsheet-and-email HR processes with a single, user-friendly system.',
+    tools: 'Vue 3 / Node.js',
+    roles: [
+      'Sole UI/UX Designer (Figma)',
+      'Front-End Assistance (Attendance & Time Off)',
+      'Dashboard & Performance Reviews APIs'
+    ],
+    stack: 'Vue 3, Chart.js, Node.js, Express, MySQL, Figma',
     colorClass: 'card-yellow',
-
-    link: '#'
+    image: moderntechImg,
+    link: 'https://roaring-fenglisu-d675db.netlify.app/',
+    github: 'https://github.com/chefmanie27-pixel/project-modern-tech-solutions-',
+    figma: 'https://www.figma.com/design/XRBCO1Ay0vCAoLJJ9kVhI9/Untitled?node-id=0-1&t=2DelupChxbIR18RJ-1'
   },
 
   {
     name: "JAM'N",
-    date: 'NOV 10, 2023',
-
-    desc: 'A community-driven music discovery web app and B2C multi-vendor marketplace for South African artists.',
-
-    tools: 'Vue.js / Firebase',
-
-    role: 'UI/UX Designer & Front-End Dev',
-
-    stack: 'Vue.js, Firebase, CSS, Figma',
-
+    date: 'SEPT 2026',
+    desc: 'A community-driven music discovery web app and B2C multi-vendor marketplace built specifically for independent South African artists, producers, and music consumers.',
+    tools: 'Vue 3 / Node.js',
+    roles: [
+      'Sole Wireframe Designer',
+      'Front-End (Discover, Library, Profiles, Account, Settings, Beat Store, Subscriptions)'
+    ],
+    stack: 'Vue 3, Node.js, MySQL, Figma',
     colorClass: 'card-cyan',
-
-    link: '#'
+    image: jamnImg, 
+    link: 'https://jamn-two.vercel.app/',
+    github: 'https://github.com/totoseahlumile-dot/JAM-N',
+    figma: 'https://www.figma.com/design/wZBJ5r5cWHu22gxKfd9NJU/JAM-N?node-id=0-1'
   }
 ])
 
-
-// ACTIVE PROJECT
-// Project 01 is open by default.
 const activeIndex = ref(0)
+const currentProject = computed(() => projects.value[activeIndex.value])
 
-
-// CURRENT PROJECT
-const currentProject = computed(() => {
-  return projects.value[activeIndex.value]
-})
-
-
-// SWITCH PROJECT
 const selectProject = (index) => {
   if (index === activeIndex.value) return
-
   activeIndex.value = index
 }
 
@@ -184,410 +216,226 @@ const selectProject = (index) => {
 
 
 <style scoped>
-
 /* =========================================
    MAIN SECTION
 ========================================= */
-
 .projects-section {
   background-color: var(--cream);
   color: var(--brown);
-
-  padding: 6rem 4rem 10rem;
-
+  
+  /* CHANGED: Reduced bottom padding by 2rem */
+  padding: 6rem 4rem 8rem; 
+  
   border-bottom: 2px solid var(--brown);
 }
 
-
-/* =========================================
-   SECTION HEADER
-========================================= */
-
-.section-header {
-  margin-bottom: 4rem;
-}
+/* CHANGED: Increased margin-bottom by 2rem to push the stack down */
+.section-header { margin-bottom: 6rem; }
 
 .header-label {
   font-family: 'JetBrains Mono', monospace;
-
-  font-size: 0.85rem;
-  font-weight: 700;
-
-  letter-spacing: 0.05em;
-
-  margin-bottom: 1rem;
+  font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 0.05em; margin-bottom: 1rem;
 }
-
 .header-title {
   font-family: 'Bebas Neue', sans-serif;
-
-  font-size: 6rem;
-  line-height: 0.9;
-
-  margin: 0;
+  font-size: 6rem; line-height: 0.9; margin: 0;
 }
 
-
 /* =========================================
-   PROJECT STACK
+   PROJECT STACK & FOLDER
 ========================================= */
-
 .project-stack {
-  position: relative;
-
-  width: 100%;
-  max-width: 1320px;
-
+  position: relative; width: 100%;
+  max-width: 1150px; 
   margin: 0 auto;
 }
 
-
-/* =========================================
-   ACTIVE FOLDER
-========================================= */
-
 .folder-card {
-  position: relative;
-
-  width: 100%;
-  height: 600px;
-
+  position: relative; width: 100%;
+  height: 600px; 
   box-sizing: border-box;
-
-  border: 2px solid var(--brown);
-  border-radius: 1rem;
-
+  border: 2px solid var(--brown); border-radius: 1rem;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-
   transition: background-color 0.3s ease;
 }
 
-
-/* =========================================
-   FOLDER COLOURS
-========================================= */
-
-.card-brown {
-  background-color: var(--brown);
-  color: var(--cyan);
-}
-
-.card-yellow {
-  background-color: #f4c33b;
-  color: var(--brown);
-}
-
-.card-cyan {
-  background-color: var(--cyan);
-  color: var(--brown);
-}
-
-
-/* =========================================
-   TOP FOLDER TAB
-========================================= */
+.card-brown { background-color: var(--brown); color: var(--cyan); }
+.card-yellow { background-color: #f4c33b; color: var(--brown); }
+.card-cyan { background-color: var(--cyan); color: var(--brown); }
 
 .folder-tab {
-  position: absolute;
-
-  top: -2.5rem;
-  left: -2px;
-
-  padding: 0.65rem 2.2rem;
-
-  background-color: inherit;
-  color: inherit;
-
-  border: 2px solid var(--brown);
-  border-bottom: none;
-
+  position: absolute; top: -2.5rem; left: -2px;
+  padding: 0.65rem 2.2rem; background-color: inherit; color: inherit;
+  border: 2px solid var(--brown); border-bottom: none;
   border-radius: 1rem 1rem 0 0;
-
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
-  font-weight: 700;
-
-  letter-spacing: 0.05em;
-
-  white-space: nowrap;
+  font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.05em; white-space: nowrap;
 }
 
-
 /* =========================================
-   PROJECT CONTENT
+   CONTENT
 ========================================= */
-
 .folder-content {
-  width: 100%;
-  height: 100%;
-
-  box-sizing: border-box;
-
-  padding: 4rem;
-  padding-bottom: 5rem;
-
-  display: grid;
-
-  grid-template-columns: 1fr 1.2fr;
-
-  gap: 4rem;
-
-  align-items: center;
+  width: 100%; height: 100%; box-sizing: border-box;
+  padding: 3rem 4rem 4rem 4rem; 
+  display: grid; 
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 4rem; 
+  align-items: start; 
 }
 
-
-/* =========================================
-   PROJECT INFORMATION
-========================================= */
-
-.project-info {
-  display: flex;
-  flex-direction: column;
+.project-info { 
+  display: flex; 
+  flex-direction: column; 
+  height: 100%; 
+  justify-content: space-between; 
 }
 
 .project-meta-top {
-  display: flex;
-
-  justify-content: space-between;
-  gap: 1rem;
-
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-
-  margin-bottom: 0.5rem;
-
-  opacity: 0.7;
+  display: flex; justify-content: space-between; gap: 1rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+  margin-bottom: 1rem; opacity: 0.7;
 }
-
-.project-name {
-  font-family: 'Bebas Neue', sans-serif;
-
-  font-size: 5rem;
-  line-height: 1;
-
-  margin: 0 0 1rem;
+.project-name { 
+  font-family: 'Bebas Neue', sans-serif; 
+  font-size: 4.5rem; 
+  line-height: 1; 
+  margin: 0 0 1.5rem; 
 }
-
-.project-desc {
-  font-family: 'Inter', sans-serif;
-
-  font-size: 1.1rem;
-  line-height: 1.6;
-
-  margin-bottom: 1.5rem;
+.project-desc { 
+  font-family: 'Inter', sans-serif; 
+  font-size: 1rem; 
+  line-height: 1.8; 
+  margin-bottom: 2rem; 
 }
-
-
-/* =========================================
-   PROJECT DETAILS
-========================================= */
 
 .project-details {
   background-color: rgba(0, 0, 0, 0.1);
-
-  padding: 1.5rem;
-
+  padding: 1.5rem; 
   border-radius: 0.5rem;
-
-  margin-bottom: 1.5rem;
-
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
-
-  display: flex;
+  margin-bottom: 1rem;
+  font-family: 'JetBrains Mono', monospace; 
+  font-size: 0.85rem; 
+  gap: 1rem; 
+  display: flex; 
   flex-direction: column;
-
-  gap: 0.8rem;
-
   border: 1px dashed currentColor;
 }
 
-.card-yellow .project-details,
-.card-cyan .project-details {
-  background-color: rgba(255, 255, 255, 0.3);
+.card-yellow .project-details, .card-cyan .project-details { background-color: rgba(255, 255, 255, 0.3); }
+
+.detail-row { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.4rem; 
 }
 
-.detail-row {
+.role-list {
+  list-style: none; 
+  padding: 0;
+  margin: 0;
   display: flex;
-  flex-wrap: wrap;
-
+  flex-direction: column;
   gap: 0.4rem;
 }
 
-
-/* =========================================
-   PROJECT LINK
-========================================= */
-
-.project-link {
-  font-family: 'JetBrains Mono', monospace;
-
-  font-size: 0.9rem;
-  font-weight: 700;
-
-  text-decoration: none;
-
-  color: inherit;
-
-  border-bottom: 2px solid currentColor;
-
-  padding-bottom: 0.2rem;
-
-  width: fit-content;
-
-  transition: opacity 0.2s ease;
+.role-list li {
+  position: relative;
+  padding-left: 1rem;
 }
 
-.project-link:hover {
-  opacity: 0.6;
-}
-
-
-/* =========================================
-   PROJECT IMAGE
-========================================= */
-
-.project-image {
-  width: 100%;
-
-  aspect-ratio: 4 / 3;
-
-  background-color: rgba(0, 0, 0, 0.1);
-
-  border: 1px solid currentColor;
-
-  border-radius: 0.5rem;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-}
-
-.img-placeholder {
-  font-family: 'JetBrains Mono', monospace;
-
-  font-size: 1rem;
-
+.role-list li::before {
+  content: '—'; 
+  position: absolute;
+  left: 0;
   opacity: 0.5;
 }
 
-
 /* =========================================
-   BOTTOM PROJECT SWITCHER
+   IMAGE & LINKS
 ========================================= */
-
-.project-switcher {
-  position: absolute;
-
-  bottom: -2px;
-  left: 0;
-
-  width: 100%;
-
+.project-image-area {
   display: flex;
-  align-items: flex-end;
-
-  gap: 0.6rem;
-
-  padding-left: 12rem;
-
-  box-sizing: border-box;
+  flex-direction: column;
+  height: 100%;
 }
 
-.switcher-tab {
-  position: relative;
+.project-image {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem; 
+}
 
-  padding: 0.65rem 2rem;
+.project-screenshot {
+  width: 100%;
+  height: auto; 
+  border: 2px solid currentColor; 
+  border-radius: 0.5rem;
+}
 
-  border: 2px solid var(--brown);
-  border-bottom: none;
-
-  border-radius: 1rem 1rem 0 0;
-
+.img-placeholder {
+  width: 100%; 
+  aspect-ratio: 16 / 9;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 2px solid currentColor; 
+  border-radius: 0.5rem;
+  display: flex; align-items: center; justify-content: center;
   font-family: 'JetBrains Mono', monospace;
-
-  font-size: 0.8rem;
-  font-weight: 700;
-
-  letter-spacing: 0.05em;
-
-  cursor: pointer;
-
-  transition: transform 0.25s ease;
+  font-size: 1rem; opacity: 0.5;
 }
 
-.switcher-tab:hover {
-  transform: translateY(-6px);
+.project-links-group { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 2rem; 
+  margin-top: 2.5rem; 
 }
 
+.project-link {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; font-weight: 700;
+  text-decoration: none; color: inherit; border-bottom: 2px solid currentColor;
+  padding-bottom: 0.2rem; width: fit-content; transition: opacity 0.2s ease;
+}
+.project-link:hover { opacity: 0.6; }
 
 /* =========================================
-   PROJECT TRANSITION
+   BOTTOM SWITCHER & TRANSITIONS
 ========================================= */
-
-.project-enter-active,
-.project-leave-active {
-  transition:
-    opacity 0.2s ease,
-    transform 0.25s ease;
+.project-switcher {
+  position: absolute; bottom: -2px; left: 0;
+  width: 100%; display: flex; align-items: flex-end;
+  gap: 0.6rem; padding-left: 12rem; box-sizing: border-box;
 }
-
-.project-enter-from {
-  opacity: 0;
-  transform: translateY(15px);
+.switcher-tab {
+  position: relative; padding: 0.65rem 2rem;
+  border: 2px solid var(--brown); border-bottom: none;
+  border-radius: 1rem 1rem 0 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em;
+  cursor: pointer; transition: transform 0.25s ease;
 }
+.switcher-tab:hover { transform: translateY(-6px); }
 
-.project-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
+.project-enter-active, .project-leave-active { transition: opacity 0.2s ease, transform 0.25s ease; }
+.project-enter-from { opacity: 0; transform: translateY(15px); }
+.project-leave-to { opacity: 0; transform: translateY(-10px); }
 
 /* =========================================
    MOBILE
 ========================================= */
-
 @media (max-width: 900px) {
-
-  .projects-section {
-    padding: 4rem 1.5rem 8rem;
-  }
-
-  .header-title {
-    font-size: 4rem;
-  }
-
-  .folder-card {
-    height: auto;
-    min-height: 600px;
-  }
-
-  .folder-content {
-    grid-template-columns: 1fr;
-
-    padding: 3rem 1.5rem 5rem;
-
-    gap: 2rem;
-  }
-
-  .project-name {
-    font-size: 4rem;
-  }
-
-  .project-switcher {
-    padding-left: 1rem;
-    gap: 0.3rem;
-  }
-
-  .switcher-tab {
-    padding: 0.6rem 0.8rem;
-
-    font-size: 0.65rem;
-  }
-
+  .projects-section { padding: 4rem 1.5rem 8rem; }
+  .header-title { font-size: 4rem; }
+  .folder-card { height: auto; min-height: 600px; }
+  .folder-content { grid-template-columns: 1fr; padding: 3rem 1.5rem 5rem; gap: 2rem; }
+  .project-name { font-size: 4rem; }
+  .project-image { margin-top: 0; }
+  .project-links-group { margin-top: 1.5rem; margin-bottom: 1rem; }
+  .project-switcher { padding-left: 1rem; gap: 0.3rem; }
+  .switcher-tab { padding: 0.6rem 0.8rem; font-size: 0.65rem; }
 }
-
 </style>

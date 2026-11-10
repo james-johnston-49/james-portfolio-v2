@@ -1,3 +1,8 @@
+/* Smooth scrolling applied globally */
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --cyan: #50DCE8;
   --brown: #382319;
@@ -16,12 +21,14 @@ body {
   background-color: var(--cyan); 
   font-family: 'Inter', sans-serif;
   color: var(--brown); 
-  /* ADD THIS LINE */
   overflow-x: hidden;
+  
+  /* Added here as well to ensure it catches the scroll container */
+  scroll-behavior: smooth;
 }
 
 #app {
-  width: 100%; /* Note: 100% is safer than 100vw */
+  width: 100%;
   min-height: 100vh;
   margin: 0;
   padding: 0;

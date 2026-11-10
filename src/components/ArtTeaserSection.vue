@@ -18,7 +18,8 @@
         <p class="art-blurb">
           Not everything needs a practical explanation. A space for visual stories, character concepts, and following an idea just to see where it goes.
         </p>
-        <a href="/art" class="link-arrow">ENTER THE GALLERY ↗</a>
+        <!-- COMMENTED OUT DEAD LINK -->
+        <!-- <a href="/art" class="link-arrow">ENTER THE GALLERY ↗</a> -->
       </div>
 
     </div>
@@ -73,7 +74,7 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
 .art-teaser-section {
   background-color: var(--cream); 
   color: var(--brown);
-  padding: 6rem 4rem; /* Balanced padding */
+  padding: 6rem 4rem; 
   border-bottom: 2px solid var(--brown);
   overflow: hidden; 
 }
@@ -100,7 +101,7 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
 
 .header-title-main {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 6rem; /* Matched to other sections */
+  font-size: 6rem; 
   line-height: 0.9;
   margin: 0;
 }
@@ -113,13 +114,15 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
 }
 
 .art-blurb {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.4;
   margin-bottom: 1.5rem;
   max-width: 90%;
 }
 
+/* Keep the style just in case you bring the link back later */
 .link-arrow {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.75rem;
@@ -140,7 +143,7 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
 /* --- BOTTOM SECTION --- */
 .art-display-grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr; /* Right image slightly larger */
+  grid-template-columns: 0.9fr 1.1fr; 
   gap: 5rem; 
   align-items: start;
   max-width: 1100px; 
