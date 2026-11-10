@@ -33,7 +33,8 @@
 
           <div class="hero-actions">
             <a href="#projects" class="btn-primary">EXPLORE MY WORK ↗</a>
-            <a href="#" class="btn-secondary">DOWNLOAD CV ↓</a>
+            <!-- UPDATED CV LINK -->
+            <a href="/certificates/James_Johnston_CV.pdf" download="James_Johnston_CV.pdf" class="btn-secondary">DOWNLOAD CV ↓</a>
           </div>
         </div>
 
@@ -101,13 +102,8 @@ import profileImage from '../assets/images/profile_image.jpg'
 
 .hero-content {
   display: grid;
-  
-  /* CHANGED: 1.1fr for text (left), 1fr for image (right) */
   grid-template-columns: 1.1fr 1fr; 
-  
-  /* CHANGED: Increased gap from 3rem to 5rem */
   gap: 5rem; 
-  
   align-items: start; 
 }
 
@@ -211,10 +207,7 @@ import profileImage from '../assets/images/profile_image.jpg'
 
 .terminal-frame {
   width: 100%;
-  
-  /* You can adjust this aspect ratio if the image gets too narrow */
   aspect-ratio: 16 / 12.3; 
-  
   background-color: var(--brown); 
   position: relative; 
   overflow: hidden; 

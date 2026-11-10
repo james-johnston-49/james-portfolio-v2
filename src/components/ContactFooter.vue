@@ -19,10 +19,12 @@
         <div class="contact-details">
           <div class="details-label">HAVE AN IDEA? SAY HELLO.</div>
           
+          <!-- Email Link -->
           <a href="mailto:jaston2706@gmail.com" class="email-link">
             jaston2706@gmail.com
           </a>
           
+          <!-- Phone Link -->
           <a href="tel:+27691379046" class="phone-link">
             +27 69 137 9046
           </a>
@@ -35,21 +37,22 @@
           
           <div class="social-row">
             <span class="social-platform">GITHUB</span>
-            <a href="https://github.com/james-johnston-49" target="_blank" class="social-handle">
+            <a href="https://github.com/james-johnston-49" target="_blank" rel="noopener noreferrer" class="social-handle">
               james-johnston-49 ↗
             </a>
           </div>
 
           <div class="social-row">
             <span class="social-platform">INSTAGRAM</span>
-            <a href="https://instagram.com" target="_blank" class="social-handle">
+            <!-- UPDATED INSTAGRAM LINK -->
+            <a href="https://instagram.com/james.not.so.special" target="_blank" rel="noopener noreferrer" class="social-handle">
               james.not.so.special ↗
             </a>
           </div>
 
           <div class="social-row">
             <span class="social-platform">LINKEDIN</span>
-            <a href="https://linkedin.com" target="_blank" class="social-handle">
+            <a href="https://linkedin.com/in/james-johnston-ab2a412b3" target="_blank" rel="noopener noreferrer" class="social-handle">
               james-johnston-ab2a412b3 ↗
             </a>
           </div>
@@ -61,7 +64,7 @@
 
     <!-- BOTTOM BAR -->
     <div class="footer-bottom">
-      <span class="copyright">© 2026 JAMES JOHNSTON. ALL RIGHTS RESERVED.</span>
+      <span class="copyright">© 2026 JAMES JOHNSTON. BUILT WITH CURIOSITY.</span>
       <span class="footer-script">A little logic. A lot of imagination.</span>
     </div>
   </footer>
@@ -76,11 +79,8 @@
 .contact-section {
   background-color: var(--brown); 
   color: var(--cyan); 
-  padding: 3rem 4rem 1.5rem 4rem; /* Reduced top padding from 6rem to 4rem */
-  
-  /* CHANGED: Removed min-height: 80vh and replaced it with auto */
+  padding: 3rem 4rem 1.5rem 4rem; 
   min-height: auto; 
-  
   display: flex;
   flex-direction: column;
   border-top: 2px solid var(--brown);
@@ -95,7 +95,7 @@
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  margin-bottom: 3rem; /* Reduced from 4rem */
+  margin-bottom: 3rem; 
 }
 
 /* MAIN GRID */
@@ -103,19 +103,18 @@
   display: grid;
   grid-template-columns: 1.2fr 0.8fr; 
   gap: 4rem;
-  /* Removed flex-grow: 1 so it doesn't stretch to fill the screen */
 }
 
 /* --- LEFT SIDE --- */
 .contact-left {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Changed from space-between to flex-start */
+  justify-content: flex-start; 
 }
 
 .contact-headline {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 7rem; /* You can drop this to 6rem or 6.5rem */
+  font-size: 7rem; 
   line-height: 0.9;
   margin-bottom: 3rem; 
   letter-spacing: 0.02em;
@@ -136,7 +135,6 @@
   letter-spacing: 0.05em;
 }
 
-/* ... Keep Email and Phone styles exactly the same ... */
 .email-link {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 4rem;
@@ -172,7 +170,7 @@
 .contact-right {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Aligns links to the top instead of bottom */
+  justify-content: flex-start; 
 }
 
 .social-links {
@@ -219,10 +217,7 @@
   align-items: flex-end;
   border-top: 1px solid rgba(80, 220, 232, 0.2);
   padding-top: 2rem;
-  
-  /* CHANGED: Reduced margin-top from 6rem to 3rem */
   margin-top: 1.5rem; 
-  
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.65rem;
   font-weight: 700;
@@ -246,7 +241,7 @@
 @media (max-width: 900px) {
   .contact-grid {
     grid-template-columns: 1fr; 
-    gap: 3rem; /* Reduced gap on mobile too */
+    gap: 3rem; 
   }
   
   .contact-headline {

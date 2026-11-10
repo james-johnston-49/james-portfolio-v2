@@ -9,8 +9,8 @@
           04 // VISUAL EXPERIMENTS
         </div>
         <h2 class="header-title-main">
-          NO USE CASE<br />
-          REQUIRED.
+          IMAGINATION,<br />
+          UNFILTERED.
         </h2>
       </div>
 

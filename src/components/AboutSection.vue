@@ -32,7 +32,8 @@
         </p>
         
         <div class="about-actions">
-          <a href="#" class="btn-cv" target="_blank">DOWNLOAD CV ↓</a>
+          <!-- UPDATED: Correct path to certificates folder -->
+          <a href="/certificates/James_Johnston_CV.pdf" class="btn-cv" target="_blank" rel="noopener noreferrer">VIEW CV ↗</a>
         </div>
       </div>
 
@@ -51,7 +52,6 @@
   background-color: var(--cyan); 
   color: var(--brown);
   
-  /* Balanced padding for a shorter section */
   padding: 6rem 4rem; 
   
   border-bottom: 2px solid var(--brown);
