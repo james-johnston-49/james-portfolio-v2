@@ -88,15 +88,15 @@
   background-color: var(--brown); 
   color: var(--cyan);
   
-  /* CHANGED: Matches the About section padding */
-  padding: 3rem 4rem 5rem 4rem; 
+  /* Consistent padding */
+  padding: 6rem 4rem; 
   
   border-bottom: 2px solid var(--brown);
 }
 
 /* Section Header */
 .section-header {
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
 }
 
 .header-label {
@@ -109,7 +109,7 @@
 
 .header-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 6rem; /* Changed from 7rem */
+  font-size: 6rem; /* Consistent header size */
   line-height: 0.9;
   margin: 0;
 }
@@ -118,17 +118,26 @@
 .toolkit-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4rem;
-  margin-bottom: 6rem;
+  gap: 2rem; /* Reduced gap to let cards breathe */
+  margin-bottom: 5rem;
 }
 
-/* Individual Column */
+/* NEW: The Cards */
 .toolkit-column {
   display: flex;
   flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.15); /* Slightly darker than background */
+  border: 1px solid rgba(80, 220, 232, 0.2); /* Subtle cyan border */
+  border-radius: 1rem; /* Rounded corners */
+  padding: 2.5rem 2rem; /* Inner spacing */
+  transition: transform 0.2s ease;
 }
 
-/* CHANGED: Column titles are now Cream */
+.toolkit-column:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  border-color: rgba(80, 220, 232, 0.5);
+}
+
 .column-title {
   font-family: 'JetBrains Mono', monospace;
   font-size: 1rem;
@@ -137,7 +146,7 @@
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   color: var(--cream); 
-  border-bottom: 1px solid rgba(80, 220, 232, 0.3); 
+  border-bottom: 1px solid rgba(244, 237, 226, 0.2); 
 }
 
 /* Skill Lists */
@@ -153,12 +162,11 @@
 .skill-list li {
   font-family: 'Inter', sans-serif;
   font-size: 1.1rem;
-  color: var(--cyan); /* Explicitly cyan */
 }
 
 /* Certificates Area */
 .certificates-area {
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 /* Certificate Rows */
@@ -186,7 +194,6 @@
   color: var(--cyan);
 }
 
-/* CHANGED: View links are now Cream */
 .cert-link {
   text-align: right;
   font-weight: 700;
@@ -197,7 +204,7 @@
 @media (max-width: 900px) {
   .toolkit-grid {
     grid-template-columns: 1fr; 
-    gap: 3rem;
+    gap: 2rem;
   }
   
   .header-title {
