@@ -38,26 +38,6 @@
 
     </div>
 
-    <!-- BOTTOM SECTION: Terminal Block -->
-    <div class="terminal-wrapper">
-      <div class="terminal-title">// RANDOM FACTS & CURRENT STATUS</div>
-      
-      <div class="terminal-block">
-        <div class="terminal-line">
-          <span class="terminal-key">CURRENTLY_BUILDING:</span>
-          <span class="terminal-value">This Portfolio</span>
-        </div>
-        <div class="terminal-line">
-          <span class="terminal-key">CURRENTLY_LEARNING:</span>
-          <span class="terminal-value">Advanced Vue & UX Research</span>
-        </div>
-        <div class="terminal-line">
-          <span class="terminal-key">FUEL:</span>
-          <span class="terminal-value">Iced Coffee & Lo-fi Beats</span>
-        </div>
-      </div>
-    </div>
-
   </section>
 </template>
 
@@ -70,7 +50,10 @@
 .about-section {
   background-color: var(--cyan); 
   color: var(--brown);
-  padding: 3rem 4rem 5rem 4rem; 
+  
+  /* Balanced padding for a shorter section */
+  padding: 6rem 4rem; 
+  
   border-bottom: 2px solid var(--brown);
 }
 
@@ -80,7 +63,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 5rem; 
   align-items: start; 
-  margin-bottom: 4rem; 
 }
 
 .about-left {
@@ -108,7 +90,7 @@
 
 .about-headline {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 6rem; /* Changed from 6.5rem */
+  font-size: 6rem; 
   line-height: 0.9;
   margin-bottom: 1rem;
   letter-spacing: 0.02em;
@@ -125,8 +107,6 @@
 .about-right {
   display: flex;
   flex-direction: column;
-  
-  /* CHANGED: Increased padding-top from 2rem to 4rem to shift the text down */
   padding-top: 4rem; 
 }
 
@@ -173,53 +153,6 @@
   color: var(--cream);
 }
 
-/* --- BOTTOM TERMINAL --- */
-.terminal-wrapper {
-  background-color: var(--brown); 
-  color: var(--cyan);
-  border-radius: 0.5rem;
-  overflow: hidden; 
-  max-width: 100%;
-}
-
-.terminal-title {
-  background-color: rgba(0, 0, 0, 0.2); 
-  border-bottom: 1px solid rgba(80, 220, 232, 0.2);
-  padding: 0.75rem 1.5rem; 
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--cyan);
-}
-
-.terminal-block {
-  padding: 3rem 1.5rem; 
-  display: flex;
-  flex-direction: row; 
-  justify-content: space-between;
-  gap: 2rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
-}
-
-.terminal-line {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem; 
-}
-
-.terminal-key {
-  font-weight: 700;
-  color: var(--cream); 
-  opacity: 0.7;
-}
-
-.terminal-value {
-  color: var(--cyan);
-  font-weight: 500;
-}
-
 /* Mobile Fallback */
 @media (max-width: 900px) {
   .about-top-grid {
@@ -232,13 +165,7 @@
   }
   
   .about-right {
-    padding-top: 0; /* Reset on mobile */
-  }
-
-  .terminal-block {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 2rem 1.5rem; 
+    padding-top: 0;
   }
 }
 </style>
