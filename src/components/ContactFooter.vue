@@ -3,7 +3,7 @@
     
     <!-- TOP LABEL -->
     <div class="header-label">
-      <span class="dot"></span> 05 // CONTACT
+      05 // CONTACT
     </div>
 
     <div class="contact-grid">
@@ -76,7 +76,7 @@
 .contact-section {
   background-color: var(--brown); 
   color: var(--cyan); 
-  padding: 4rem 4rem 2rem 4rem; /* Reduced top padding from 6rem to 4rem */
+  padding: 3rem 4rem 1.5rem 4rem; /* Reduced top padding from 6rem to 4rem */
   
   /* CHANGED: Removed min-height: 80vh and replaced it with auto */
   min-height: auto; 
@@ -96,13 +96,6 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   margin-bottom: 3rem; /* Reduced from 4rem */
-}
-
-.dot {
-  width: 6px;
-  height: 6px;
-  background-color: var(--cyan);
-  border-radius: 50%;
 }
 
 /* MAIN GRID */

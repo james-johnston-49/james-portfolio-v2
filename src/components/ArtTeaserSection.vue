@@ -6,7 +6,7 @@
       
       <div class="header-left">
         <div class="header-label">
-          <span class="dot"></span> 04 // VISUAL EXPERIMENTS
+          04 // VISUAL EXPERIMENTS
         </div>
         <h2 class="header-title-main">
           NO USE CASE<br />
@@ -96,13 +96,6 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
   font-weight: 700;
   letter-spacing: 0.05em;
   margin-bottom: 1rem;
-}
-
-.dot {
-  width: 6px;
-  height: 6px;
-  background-color: var(--brown);
-  border-radius: 50%;
 }
 
 .header-title-main {

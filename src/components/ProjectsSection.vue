@@ -132,7 +132,7 @@ const getCardStyle = (index) => {
 .projects-section {
   background-color: var(--cream); 
   color: var(--brown);
-  padding: 6rem 4rem 4rem 4rem; 
+  padding: 6rem 4rem; 
   border-bottom: 2px solid var(--brown);
 }
 

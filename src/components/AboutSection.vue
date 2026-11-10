@@ -7,7 +7,7 @@
       <!-- Left: Big Headlines -->
       <div class="about-left">
         <div class="header-label">
-          <span class="dot"></span> 03 // ABOUT
+          03 // ABOUT
         </div>
         
         <h2 class="about-headline">
@@ -79,13 +79,6 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   margin-bottom: 1.5rem;
-}
-
-.dot {
-  width: 6px;
-  height: 6px;
-  background-color: var(--brown);
-  border-radius: 50%;
 }
 
 .about-headline {
