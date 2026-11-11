@@ -148,17 +148,32 @@
 
 /* Mobile Fallback */
 @media (max-width: 900px) {
+  .about-section {
+    padding: 4rem 1.5rem;
+  }
+
+  /* Stack the headline and the text */
   .about-top-grid {
     grid-template-columns: 1fr; 
     gap: 2rem;
   }
   
+  /* Scale down the massive headline */
   .about-headline {
     font-size: 5rem;
   }
+
+  .about-subheadline {
+    font-size: 1.5rem;
+  }
   
+  /* Remove the artificial push-down on the text */
   .about-right {
     padding-top: 0;
+  }
+
+  .about-intro-fancy {
+    font-size: 1.2rem;
   }
 }
 </style>

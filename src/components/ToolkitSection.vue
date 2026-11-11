@@ -190,9 +190,38 @@
 
 /* Mobile Fallback */
 @media (max-width: 900px) {
-  .toolkit-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .header-title { font-size: 5rem; }
-  .cert-row { grid-template-columns: 1fr; gap: 0.5rem; }
-  .cert-link { text-align: left; margin-top: 0.5rem; }
+  /* Reduce padding */
+  .toolkit-section {
+    padding: 4rem 1.5rem;
+  }
+
+  /* Scale down the header */
+  .header-title {
+    font-size: 5rem;
+  }
+
+  /* Stack the 3 columns into 1 */
+  .toolkit-grid {
+    grid-template-columns: 1fr; 
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  /* Make the cards a bit tighter */
+  .toolkit-column {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Certificates: Stack the issuer, name, and link */
+  .cert-row {
+    grid-template-columns: 1fr; 
+    gap: 0.5rem;
+    padding: 1.25rem 0;
+  }
+  
+  .cert-link {
+    text-align: left;
+    margin-top: 0.5rem;
+  }
 }
 </style>

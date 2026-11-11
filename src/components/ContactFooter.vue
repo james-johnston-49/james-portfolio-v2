@@ -239,23 +239,33 @@
 
 /* Mobile Fallback */
 @media (max-width: 900px) {
+  .contact-section {
+    padding: 4rem 1.5rem 2rem 1.5rem;
+  }
+
+  /* Stack the big text and the social links */
   .contact-grid {
     grid-template-columns: 1fr; 
     gap: 3rem; 
   }
   
+  /* Scale down the headline */
   .contact-headline {
-    font-size: 5rem;
+    font-size: 4.5rem;
   }
   
+  /* Scale down the massive email */
   .email-link {
-    font-size: 2.5rem;
+    font-size: 2.2rem; 
+    word-break: break-all; /* Prevents the email from overflowing the screen */
   }
-  
+
+  /* Stack the copyright and the script */
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+    margin-top: 2rem;
   }
 }
 </style>

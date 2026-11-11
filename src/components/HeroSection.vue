@@ -272,21 +272,41 @@ import profileImage from '../assets/images/profile_image.jpg'
 
 /* Mobile Fallback */
 @media (max-width: 900px) {
-  .hero-content {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+  .hero-section {
+    padding: 6rem 1.5rem 3rem 1.5rem; /* Less padding on mobile */
+    min-height: auto; /* Let it grow naturally */
   }
-  
+
   .header-name {
-    font-size: 5rem;
+    font-size: 4.5rem; /* Scale down the name slightly */
+    line-height: 1;
   }
-  
-  .hero-headline {
-    font-size: 4.5rem; 
+
+  .hero-content {
+    grid-template-columns: 1fr; /* Stack text and image */
+    gap: 2rem;
   }
-  
+
   .hero-text {
+    margin-top: -1rem; /* Adjust spacing */
+  }
+
+  .hero-headline {
+    font-size: 4.5rem; /* Keep it big but fit the screen */
+  }
+
+  .hero-subheadline, 
+  .hero-intro {
+    max-width: 100%; /* Let text fill the screen */
+  }
+
+  .hero-image-area {
     margin-top: 0;
+    justify-content: center; /* Center the image */
+  }
+
+  .terminal-frame {
+    aspect-ratio: 4 / 5; /* Make the image taller on mobile */
   }
 }
 </style>

@@ -94,4 +94,11 @@ onUnmounted(() => {
   transform: translate(3px, 3px); 
   box-shadow: 2px 2px 0px var(--brown);
 }
+
+/* Hide back-to-top on mobile and tablets */
+@media (max-width: 900px) {
+  .back-to-top {
+    display: none !important;
+  }
+}
 </style>

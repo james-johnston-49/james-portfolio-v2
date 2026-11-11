@@ -428,14 +428,74 @@ const selectProject = (index) => {
    MOBILE
 ========================================= */
 @media (max-width: 900px) {
-  .projects-section { padding: 4rem 1.5rem 8rem; }
-  .header-title { font-size: 4rem; }
-  .folder-card { height: auto; min-height: 600px; }
-  .folder-content { grid-template-columns: 1fr; padding: 3rem 1.5rem 5rem; gap: 2rem; }
-  .project-name { font-size: 4rem; }
-  .project-image { margin-top: 0; }
-  .project-links-group { margin-top: 1.5rem; margin-bottom: 1rem; }
-  .project-switcher { padding-left: 1rem; gap: 0.3rem; }
-  .switcher-tab { padding: 0.6rem 0.8rem; font-size: 0.65rem; }
+  .projects-section { 
+    padding: 4rem 1.5rem 8rem; 
+  }
+  
+  .header-title { 
+    font-size: 5rem; 
+  }
+
+  /* The folder becomes a simple flexible box */
+  .folder-card { 
+    height: auto; /* Let content dictate height */
+    min-height: 100%; 
+    padding-bottom: 2rem;
+  }
+  
+  /* The folder tab is easier to position on mobile */
+  .folder-tab {
+    font-size: 0.7rem;
+    padding: 0.5rem 1.5rem;
+  }
+
+  /* Stack the text and image on top of each other */
+  .folder-content { 
+    grid-template-columns: 1fr; 
+    padding: 2rem 1.5rem 0 1.5rem; 
+    gap: 2rem; 
+  }
+
+  /* Scale down the giant text */
+  .project-name { 
+    font-size: 4rem; 
+  }
+  
+  .project-desc {
+    font-size: 0.95rem;
+  }
+
+  /* Make sure the image doesn't overflow */
+  .project-image {
+    margin-top: 0;
+    width: 100%;
+  }
+  
+  .project-screenshot {
+    width: 100%;
+  }
+
+  /* Put the links under the image */
+  .project-links-group { 
+    margin-top: 1.5rem; 
+    margin-bottom: 1rem; 
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  /* Move the switcher tabs to the bottom center */
+  .project-switcher { 
+    position: relative; 
+    bottom: 0; 
+    padding-left: 0; 
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 0.5rem; 
+  }
+
+  .switcher-tab { 
+    padding: 0.6rem 1rem; 
+    font-size: 0.65rem; 
+  }
 }
 </style>

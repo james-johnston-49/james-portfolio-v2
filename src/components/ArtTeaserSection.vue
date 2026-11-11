@@ -249,20 +249,38 @@ import poisonIvy from '../assets/art/absolute-poison-ivy.png'
 
 /* Mobile Fallback */
 @media (max-width: 900px) {
-  .art-header-grid, .art-display-grid {
+  .art-teaser-section {
+    padding: 4rem 1.5rem;
+  }
+
+  /* Stack the top header and text */
+  .art-header-grid {
     grid-template-columns: 1fr; 
-    gap: 3rem;
+    gap: 2rem;
+    margin-bottom: 3rem;
   }
   
   .header-title-main {
     font-size: 5rem;
   }
   
-  .left-piece .polaroid, .right-piece .polaroid {
+  /* Stack the two polaroids */
+  .art-display-grid {
+    grid-template-columns: 1fr; 
+    gap: 4rem;
+  }
+
+  /* Remove the rotation and stagger so they sit flat */
+  .left-piece .polaroid, 
+  .right-piece .polaroid {
     transform: rotate(0deg); 
   }
 
   .left-piece {
+    margin-top: 0;
+  }
+  
+  .right-piece {
     margin-top: 0;
   }
 }
