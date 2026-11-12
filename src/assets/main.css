@@ -25,6 +25,7 @@ body {
   
   /* Added here as well to ensure it catches the scroll container */
   scroll-behavior: smooth;
+  font-display: swap;
 }
 
 #app {

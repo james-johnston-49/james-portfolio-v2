@@ -1,5 +1,5 @@
 <template>
-  <section class="hero-section">
+  <section class="hero-section" v-reveal>
     
     <!-- TOP HEADER: JAMES JOHNSTON -->
     <div class="hero-header">
@@ -7,7 +7,7 @@
     </div>
 
     <!-- MAIN CONTENT AREA -->
-      <div class="hero-content" v-reveal>
+    <div class="hero-content">
       
       <!-- LEFT SIDE: TEXT -->
       <div class="hero-text">
@@ -33,7 +33,6 @@
 
           <div class="hero-actions">
             <a href="#projects" class="btn-primary">EXPLORE MY WORK ↗</a>
-            <!-- UPDATED CV LINK -->
             <a href="/certificates/James_Johnston_CV.pdf" download="James_Johnston_CV.pdf" class="btn-secondary">DOWNLOAD CV ↓</a>
           </div>
         </div>
@@ -44,18 +43,15 @@
       <div class="hero-image-area">
         <div class="terminal-frame">
           
-          <!-- TOP BAR -->
           <div class="terminal-top">
             <span>// PROFILE_IMAGE.JPG</span>
             <span class="terminal-dot"></span>
           </div>
 
-          <!-- IMAGE -->
           <div class="terminal-image-wrapper">
             <img :src="profileImage" alt="James Johnston" />
           </div>
 
-          <!-- BOTTOM BAR -->
           <div class="terminal-bottom">
             <span class="footer-script">A builder's mind.</span>
             <span class="footer-meta">DEVELOPER<br>ARTIST / JJ</span>
@@ -85,6 +81,7 @@ import profileImage from '../assets/images/profile_image.jpg'
   min-height: 100vh; 
 }
 
+/* Top Header */
 .hero-header {
   border-bottom: 1px solid rgba(56, 35, 25, 0.2);
   padding-bottom: 0.5rem;
@@ -100,6 +97,7 @@ import profileImage from '../assets/images/profile_image.jpg'
   margin: 0;
 }
 
+/* Main Content Grid */
 .hero-content {
   display: grid;
   grid-template-columns: 1.1fr 1fr; 
@@ -107,6 +105,7 @@ import profileImage from '../assets/images/profile_image.jpg'
   align-items: start; 
 }
 
+/* Left Text Column */
 .hero-text {
   display: flex;
   flex-direction: column;
@@ -122,7 +121,8 @@ import profileImage from '../assets/images/profile_image.jpg'
   margin-bottom: 1rem; 
 }
 
-.text-block { display: flex;
+.text-block { 
+  display: flex;
   flex-direction: column;
   margin-top: 1rem;
 }
@@ -273,40 +273,40 @@ import profileImage from '../assets/images/profile_image.jpg'
 /* Mobile Fallback */
 @media (max-width: 900px) {
   .hero-section {
-    padding: 6rem 1.5rem 3rem 1.5rem; /* Less padding on mobile */
-    min-height: auto; /* Let it grow naturally */
+    padding: 6rem 1.5rem 3rem 1.5rem;
+    min-height: auto;
   }
 
   .header-name {
-    font-size: 4.5rem; /* Scale down the name slightly */
+    font-size: 4.5rem;
     line-height: 1;
   }
 
   .hero-content {
-    grid-template-columns: 1fr; /* Stack text and image */
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
 
   .hero-text {
-    margin-top: -1rem; /* Adjust spacing */
+    margin-top: -1rem;
   }
 
   .hero-headline {
-    font-size: 4.5rem; /* Keep it big but fit the screen */
+    font-size: 4.5rem;
   }
 
   .hero-subheadline, 
   .hero-intro {
-    max-width: 100%; /* Let text fill the screen */
+    max-width: 100%;
   }
 
   .hero-image-area {
     margin-top: 0;
-    justify-content: center; /* Center the image */
+    justify-content: center;
   }
 
   .terminal-frame {
-    aspect-ratio: 4 / 5; /* Make the image taller on mobile */
+    aspect-ratio: 4 / 5;
   }
 }
 </style>
