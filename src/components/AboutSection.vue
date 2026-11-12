@@ -5,7 +5,8 @@
     <div class="about-top-grid">
       
       <!-- Left: Big Headlines -->
-      <div class="about-left">
+            <!-- Left: Big Headlines -->
+      <div class="about-left" v-reveal>
         <div class="header-label">
           03 // ABOUT
         </div>
@@ -21,7 +22,7 @@
       </div>
 
       <!-- Right: Paragraphs & CV -->
-      <div class="about-right">
+      <div class="about-right" v-reveal>
         <!-- Fancy Intro -->
         <p class="about-intro-fancy">
           I am a software developer who believes that technical logic and visual storytelling aren't enemies—they're a team. I specialize in building web applications that are fast, functional, and intuitive to use.

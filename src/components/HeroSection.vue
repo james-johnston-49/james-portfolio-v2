@@ -7,7 +7,7 @@
     </div>
 
     <!-- MAIN CONTENT AREA -->
-    <div class="hero-content">
+      <div class="hero-content" v-reveal>
       
       <!-- LEFT SIDE: TEXT -->
       <div class="hero-text">

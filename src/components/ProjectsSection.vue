@@ -2,13 +2,14 @@
   <section class="projects-section" id="projects">
 
     <!-- SECTION HEADER -->
-    <div class="section-header">
+        <!-- SECTION HEADER -->
+    <div class="section-header" v-reveal>
       <div class="header-label">01 // SELECTED PROJECTS</div>
       <h2 class="header-title">BUILT TO WORK.</h2>
     </div>
 
     <!-- FILING CABINET -->
-    <div class="project-stack">
+      <div class="project-stack" v-reveal>
 
       <!-- ACTIVE PROJECT -->
       <div

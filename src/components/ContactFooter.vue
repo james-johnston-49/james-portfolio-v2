@@ -2,11 +2,11 @@
   <footer class="contact-section" id="contact">
     
     <!-- TOP LABEL -->
-    <div class="header-label">
+    <div class="header-label" v-reveal>
       05 // CONTACT
     </div>
 
-    <div class="contact-grid">
+    <div class="contact-grid" v-reveal>
       
       <!-- LEFT SIDE: Massive Text & Contact Info -->
       <div class="contact-left">

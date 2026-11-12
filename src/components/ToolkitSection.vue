@@ -2,7 +2,7 @@
   <section class="toolkit-section" id="toolkit">
     
     <!-- Section Header -->
-    <div class="section-header">
+    <div class="section-header" v-reveal>
       <div class="header-label">02 // THE TOOLKIT</div>
       <h2 class="header-title">ALWAYS IN THE MAKING.</h2>
     </div>
@@ -11,7 +11,7 @@
     <div class="toolkit-grid">
       
       <!-- Column 1: Development -->
-      <div class="toolkit-column">
+      <div class="toolkit-column" v-reveal>
         <h3 class="column-title">DEVELOPMENT</h3>
         <ul class="skill-list">
           <li>Vue.js</li>
@@ -25,7 +25,7 @@
       </div>
 
       <!-- Column 2: Visual Art & Design -->
-      <div class="toolkit-column">
+      <div class="toolkit-column" v-reveal style="transition-delay: 150ms;">
         <h3 class="column-title">VISUAL ART & DESIGN</h3>
         <ul class="skill-list">
           <li>Figma</li>
@@ -38,7 +38,7 @@
       </div>
 
       <!-- Column 3: Core Strengths -->
-      <div class="toolkit-column">
+      <div class="toolkit-column" v-reveal style="transition-delay: 300ms;">
         <h3 class="column-title">CORE STRENGTHS</h3>
         <ul class="skill-list">
           <li>Problem Solving</li>
@@ -52,7 +52,7 @@
     </div>
 
     <!-- The Certificates List -->
-    <div class="certificates-area">
+    <div class="certificates-area" v-reveal>
       <h3 class="column-title">CERTIFICATES & COURSES</h3>
       
       <a href="/certificates/Introduction_to_Cybersecurity_certificate.pdf" target="_blank" rel="noopener noreferrer" class="cert-row">
@@ -190,29 +190,24 @@
 
 /* Mobile Fallback */
 @media (max-width: 900px) {
-  /* Reduce padding */
   .toolkit-section {
     padding: 4rem 1.5rem;
   }
 
-  /* Scale down the header */
   .header-title {
     font-size: 5rem;
   }
 
-  /* Stack the 3 columns into 1 */
   .toolkit-grid {
     grid-template-columns: 1fr; 
     gap: 1.5rem;
     margin-bottom: 3rem;
   }
 
-  /* Make the cards a bit tighter */
   .toolkit-column {
     padding: 2rem 1.5rem;
   }
 
-  /* Certificates: Stack the issuer, name, and link */
   .cert-row {
     grid-template-columns: 1fr; 
     gap: 0.5rem;

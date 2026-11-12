@@ -4,7 +4,7 @@
     <!-- TOP SECTION: HEADER & TEXT -->
     <div class="art-header-grid">
       
-      <div class="header-left">
+      <div class="header-left" v-reveal>
         <div class="header-label">
           04 // VISUAL EXPERIMENTS
         </div>
@@ -14,7 +14,8 @@
         </h2>
       </div>
 
-      <div class="header-right">
+      <!-- ADDED v-reveal and a slight delay here -->
+      <div class="header-right" v-reveal style="transition-delay: 150ms;">
         <p class="art-blurb">
           Not everything needs a practical explanation. A space for visual stories, character concepts, and following an idea just to see where it goes.
         </p>
@@ -28,7 +29,7 @@
     <div class="art-display-grid">
       
       <!-- LEFT IMAGE + TEXT -->
-      <div class="art-piece left-piece">
+      <div class="art-piece left-piece" v-reveal>
         <div class="polaroid">
           <div class="polaroid-image-wrapper">
             <img :src="mossCat" alt="Moss Cat Creature" />
@@ -51,7 +52,7 @@
       </div>
 
       <!-- RIGHT IMAGE -->
-      <div class="art-piece right-piece">
+      <div class="art-piece right-piece" v-reveal style="transition-delay: 150ms;">
         <div class="polaroid">
           <div class="polaroid-image-wrapper">
             <img :src="poisonIvy" alt="Poison Ivy" />
