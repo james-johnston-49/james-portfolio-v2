@@ -44,7 +44,7 @@
         <div class="terminal-frame">
           
           <div class="terminal-top">
-            <span>// PROFILE_IMAGE.JPG</span>
+            <span>// PROFILE_IMAGE.WEBP</span>
             <span class="terminal-dot"></span>
           </div>
 
@@ -66,7 +66,7 @@
 </template>
 
 <script setup>
-import profileImage from '../assets/images/profile_image.jpg'
+import profileImage from '../assets/images/profile_image.webp'
 </script>
 
 <style scoped>
