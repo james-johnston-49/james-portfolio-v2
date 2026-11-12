@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Cyan Background -->
+  <rect width="32" height="32" fill="#50DCE8" rx="4" />
+  
+  <!-- Dark Brown Pixel Blocks making the backwards J -->
+  
+  <!-- Top Bar (Moved up slightly to increase gap) -->
+  <rect x="8" y="6" width="13" height="5" fill="#382319" />
+  
+  <!-- Right Stem (Connected to the top bar) -->
+  <rect x="17" y="11" width="4" height="11" fill="#382319" />
+  
+  <!-- Bottom Hook (Moved down to create the gap) -->
+  <rect x="12" y="22" width="8" height="4" fill="#382319" />
+  <rect x="8" y="18" width="4" height="4" fill="#382319" />
+  
+  <!-- Left Stem Top Block (Now starts at y=15, leaving a 4px gap below the top bar) -->
+  <rect x="8" y="15" width="4" height="3" fill="#382319" />
+</svg>
